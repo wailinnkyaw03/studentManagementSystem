@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+.home{
+    background: linear-gradient(to bottom, #42275a 0%, #734b6d 100%);
+}
+.reveal{
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: 1s all ease;
+}
+  
+.reveal.active{
+    transform: scale(1);
+    opacity: 1;
+}
+
+.zoomin{
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: 1s all ease;
+}
+  
+.zoomin.Zoomin{
+    transform: scale(1);
+    opacity: 1;
+}
+
+.leftin{
+    position: relative;
+    transform: translateX(-500px);
+    /* transform: translateY(150px); */
+    opacity: 0;
+    transition: 1s all ease;
+}
+  
+.leftin.Leftin{
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.rightin{
+    position: relative;
+    transform: translateX(500px);
+    /* transform: translateY(150px); */
+    opacity: 0;
+    transition: 1s all ease;
+}
+  
+.rightin.Rightin{
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.left-slide-in{
+    animation: moveleft 1s linear 1;
+    animation-delay: 1s;
+    visibility: hidden;
+    animation-fill-mode: forwards;
+}
+@keyframes moveleft{
+    0%{
+        transform: translateX(-100px);
+        visibility: visible;
+    }
+    100%{
+        transform:translateX(0);
+        visibility: visible;
+    }
+}
+.right-slide-in{
+    animation: moveright 1s linear 1;
+    animation-delay: 1s;
+    visibility: hidden;
+    animation-fill-mode: forwards;
+}
+@keyframes moveright{
+    0%{
+        transform: translateX(100px);
+        visibility: visible;
+    }
+    100%{
+        transform:translateX(0);
+        visibility: visible;
+    }
+}
+.slideup-in{
+    animation: moveup 1s linear 1;
+    animation-delay: 1s;
+    visibility: hidden;
+    animation-fill-mode: forwards;
+}
+@keyframes moveup{
+    0%{
+        transform: translateY(100px);
+        visibility: visible;
+    }
+    100%{
+        transform:translateY(0);
+        visibility: visible;
+    }
+}
+
+#contact{
+    background: linear-gradient(to bottom, #003366 0%, #666699 100%);
+    width: 100%;
+    height: 200px;
+
+}
+.form-style{
+    width: 100%;
+    height: 40px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+}
+  
+.input-group-text{
+    border-radius: 30px;
+    height: 40px;
+    background-color: white;
+    border: none;
+}
