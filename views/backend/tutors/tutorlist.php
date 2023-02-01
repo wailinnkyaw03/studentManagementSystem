@@ -20,7 +20,7 @@
                         <th>Joining Date</th>
                         <th>Salary</th>
                         <th>Address</th>
-                        <th>Course</th>
+                        <!-- <th>Course</th> -->
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -39,7 +39,7 @@
                         <td>2021-01-01</td>
                         <td>300000 Kyats</td>
                         <td>50, Chan Aye Thar San Tsp, Mandalay.</td>
-                        <td>PHP(Backend Course)</td>
+                        <!-- <td>PHP(Backend Course)</td> -->
                         <td>
                             <a href="admin.php?page=tutoredit" class="text-decoration-none text-success"><i class="fas fa-user-plus me-1"></i></a>
                             <a href="../../controllers/TutorController.php?action=delete" class="text-decoration-none text-danger"><i class="fas fa-user-minus"></i></a>

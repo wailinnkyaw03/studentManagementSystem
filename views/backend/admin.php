@@ -1,4 +1,18 @@
 <?php 
+session_start();
+
+include "../../app/DB.php";
+include "../../app/Admin.php";
+
+
+$db = new DB();
+$connection = $db->connect();
+$adminDB = new Admin($connection);
+
+
+if(!isset($_SESSION['auth'])){
+    header("location: login.php");
+}
 
 
 
@@ -12,8 +26,11 @@ if(isset($_GET["page"])){
     }else if($page=="addAdmin"){//admin
         include "./admins/addAdmin.php";
     }else if($page=="adminlist"){
+        $admins = $adminDB->getAll();
         include "./admins/adminlist.php";
     }else if($page=="adminedit"){
+        $id = $_GET['id'];
+        $admin = $adminDB->get($id);
         include "./admins/adminedit.php";
     }else if($page=="addStudent"){//student
         include "./students/addStudent.php";
@@ -41,6 +58,8 @@ if(isset($_GET["page"])){
         include "./courses/courseedit.php";
     }
 }else{
+    // $id = $_GET['id'];
+    // $admin = $adminDB->get($id);
     include "dashboard.php";
 }
 

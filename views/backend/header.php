@@ -10,7 +10,7 @@
     <meta name="author" content="">
 
     <title>Admin - Dashboard</title>
-
+    <link rel="icon" href="../../assets/img/k-logo.png">
     <!-- Custom fonts for this template-->
     <script src="https://kit.fontawesome.com/b829c5162c.js" crossorigin="anonymous"></script>
     <link

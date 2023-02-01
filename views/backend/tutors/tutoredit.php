@@ -61,7 +61,7 @@
                         <input type="text" class="form-control" id="address" name="address" value="50, Chan Aye Thar San Tsp, Mandalay.">
                         <label for="address">Address</label>
                     </div>
-                    <div class="form-floating my-3">
+                    <!-- <div class="form-floating my-3">
                         <select class="form-select" id="course">
                             <option selected>Select Courses</option>
                             <option value="ReactJS(Frontend Course)">ReactJS(Frontend Course)</option>
@@ -72,7 +72,7 @@
                             <option value="NodeJS(Backend Course)">NodeJS(Backend Course)</option>
                         </select>
                         <label for="course">Select Courses You Taught</label>
-                    </div>
+                    </div> -->
                     <div class="form-group text-end">
                         <button class="btn btn-outline-secondary my-3 me-2" type="submit"><i class="fas fa-user-plus me-2"></i>Edit Tutor</button>
                         <button class="btn btn-outline-secondary my-3" type="reset"><i class="fa-solid fa-arrows-rotate me-2"></i>Reset</button>
