@@ -1,0 +1,88 @@
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="align-items-center mb-4">
+                <h1 class="h3 my-5 text-gray-800">Edit Tutor Account</h1>
+
+                <form action="../../controllers/StudentController.php" method="post">
+                    <div class="form-floating my-3">
+                        <input type="text" class="form-control" id="name" name="name" value="Hein Min Htet">
+                        <label for="name">Tutor Name</label>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="file" class="form-control" id="image" name="image" accept="image/*">
+                        <label class="input-group-text" for="image">Profile Picture</label>
+                    </div>
+                    <div class="form-floating my-3">
+                        <input type="email" class="form-control" id="email" name="email" value="heinminhtet8138@gmail.com">
+                        <label for="email">Email Address</label>
+                    </div>
+                    <div class="form-floating my-3">
+                        <input type="password" class="form-control" id="password" name="password" value="123456">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="form-floating my-3">
+                        <input type="date" class="form-control" id="dob" name="dob" value="1997-08-29">
+                        <label for="dob">Date of Birth</label>
+                    </div>
+                    <div class="my-3">
+                        <label for="">Gender</label><br>
+                        <label for="male">Male</label>
+                        <input type="radio" id="male" name="gender" value="Male">
+                        <label for="female" class="ms-5">Female</label>
+                        <input type="radio" id="female" name="gender" value="Female">
+                    </div>
+                    <div class="form-floating my-3">
+                        <input type="number" class="form-control" id="phone" name="phone" value="09123456789">
+                        <label for="phone">Phone Number</label>
+                    </div>
+                    <div class="form-floating my-3">
+                        <input type="text" class="form-control" id="education" name="education" value="B.Sc(Computer)">
+                        <label for="education">Education Background</label>
+                    </div>
+                    <div class="form-floating my-3">
+                        <input type="text" class="form-control" id="skill" name="skill" value="HTML, CSS, JavaScript, VueJS, JQuery, Bootstrap, PHP, Laravel">
+                        <label for="skill">Skills</label>
+                    </div>
+                    <div class="form-floating my-3">
+                        <input type="text" class="form-control" id="exp" name="exp" value="Teaching Experiences 5 years">
+                        <label for="exp">Experiences</label>
+                    </div>
+                    <div class="form-floating my-3">
+                        <input type="date" class="form-control" id="joinDate" name="joinDate" value="2021-01-01">
+                        <label for="joinDate">Joining Date</label>
+                    </div>
+                    <div class="form-floating my-3">
+                        <input type="int" class="form-control" id="salary" name="salary" value="300000">
+                        <label for="salary">Salary</label>
+                    </div>
+                    <div class="form-floating my-3">
+                        <input type="text" class="form-control" id="address" name="address" value="50, Chan Aye Thar San Tsp, Mandalay.">
+                        <label for="address">Address</label>
+                    </div>
+                    <div class="form-floating my-3">
+                        <select class="form-select" id="course">
+                            <option selected>Select Courses</option>
+                            <option value="ReactJS(Frontend Course)">ReactJS(Frontend Course)</option>
+                            <option value="Bootstrap(Frontend Course)">Bootstrap(Frontend Course)</option>
+                            <option value="VueJS(Frontend Course)">VueJS(Frontend Course)</option>
+                            <option value="PHP(Backend Course)">PHP(Backend Course)</option>
+                            <option value="Java(Backend Course)">Java(Backend Course)</option>
+                            <option value="NodeJS(Backend Course)">NodeJS(Backend Course)</option>
+                        </select>
+                        <label for="course">Select Courses You Taught</label>
+                    </div>
+                    <div class="form-group text-end">
+                        <button class="btn btn-outline-secondary my-3 me-2" type="submit"><i class="fas fa-user-plus me-2"></i>Edit Tutor</button>
+                        <button class="btn btn-outline-secondary my-3" type="reset"><i class="fa-solid fa-arrows-rotate me-2"></i>Reset</button>
+                    </div>
+                    
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+    
+</div>
