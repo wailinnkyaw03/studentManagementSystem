@@ -59,7 +59,7 @@ if(isset($_GET["page"])){
     }
 }else{
     // $id = $_GET['id'];
-    // $admin = $adminDB->get($id);
+    // $admin = $adminDB->check($id);
     include "dashboard.php";
 }
 
