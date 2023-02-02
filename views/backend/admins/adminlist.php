@@ -3,7 +3,7 @@
     <div class="mb-4">
         
 
-        <h1 class="h3 my-5 text-gray-800">Admin List</h1>
+        <h1 class="h3 my-5 text-gray-800 my-5"><i class="fas fa-list me-2"></i>Admin List</h1>
 
         <?php if(isset($_SESSION['expire'])){
             $diff = time() - $_SESSION['expire'];

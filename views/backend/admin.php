@@ -10,6 +10,7 @@ $connection = $db->connect();
 $adminDB = new Admin($connection);
 
 
+
 if(!isset($_SESSION['auth'])){
     header("location: login.php");
 }
@@ -18,6 +19,8 @@ if(!isset($_SESSION['auth'])){
 
 include "header.php";
 include "nav.php";
+
+
 
 if(isset($_GET["page"])){
     $page = $_GET["page"];
@@ -56,6 +59,12 @@ if(isset($_GET["page"])){
         include "./courses/courselist.php";
     }else if($page=="courseedit"){
         include "./courses/courseedit.php";
+    }else if($page=="addfee"){//fee
+        include "./fees/addfee.php";
+    }else if($page=="feelist"){
+        include "./fees/feelist.php";
+    }else if($page=="feeEdit"){
+        include "./fees/feeEdit.php";
     }
 }else{
     // $id = $_GET['id'];

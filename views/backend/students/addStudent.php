@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-lg-6 offset-lg-3">
             <div class="align-items-center mb-4">
-                <h1 class="h3 my-5 text-gray-800">Create Student Account</h1>
+                <h1 class="h3 my-5 text-gray-800"><i class="fas fa-graduation-cap me-2"></i>Create Student Account</h1>
 
                 <form action="../../controllers/StudentController.php" method="post">
                     <div class="form-floating my-3">

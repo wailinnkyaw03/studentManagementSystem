@@ -129,6 +129,20 @@
                     </div>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#fees"
+                    aria-expanded="true" aria-controls="fees">
+                    <i class="fas fa-fw fa-dollar"></i>
+                    <span>Fees</span>
+                </a>
+                <div id="fees" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Fee Components:</h6>
+                        <a class="collapse-item" href="admin.php?page=addfee"><i class="fas fa-plus me-2"></i> Add Fee</a>
+                        <a class="collapse-item" href="admin.php?page=feelist"><i class="fas fa-list me-2"></i> Fee List</a>
+                    </div>
+                </div>
+            </li>
             
 
 

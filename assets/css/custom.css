@@ -1,10 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); */
 
 *{
     font-family: 'Poppins', sans-serif;
 }
 .home{
-    background: linear-gradient(to bottom, #42275a 0%, #734b6d 100%);
+    /* background: linear-gradient(to bottom, #42275a 0%, #734b6d 100%); */
+    background-image: url(../img/online-study.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
 }
 .reveal{
     position: relative;
@@ -29,7 +34,19 @@
     transform: scale(1);
     opacity: 1;
 }
-
+.logo-color{
+    color: #FD7F32;
+}
+.logo-bg-color{
+    background-color: #FD7F32;
+}
+.logo-border{
+    border: 1px solid #FD7F32;
+}
+.logo-border:hover{
+    background-color: #FD7F32;
+    color: #fff;
+}
 .leftin{
     position: relative;
     transform: translateX(-500px);

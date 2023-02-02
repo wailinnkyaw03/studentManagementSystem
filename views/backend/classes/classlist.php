@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Class Types</h1>
+        <h1 class="h3 mb-0 text-gray-800"><i class="fas fa-list me-2"></i>Class Types</h1>
         
         <div class="table-responsive mt-3">
             <table class="table table-hover">

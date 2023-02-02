@@ -19,7 +19,7 @@
                 </div>
             <?php }?>
 
-                <h1 class="h3 my-5 text-gray-800">Create Admin Account</h1>
+                <h1 class="h3 my-5 text-gray-800"><i class="fas fa-home-user me-2"></i>Create Admin Account</h1>
 
                 <form action="../../controllers/AdminController.php" method="POST">
                     <div class="form-floating my-3">
