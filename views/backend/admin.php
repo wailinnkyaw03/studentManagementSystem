@@ -3,11 +3,13 @@ session_start();
 
 include "../../app/DB.php";
 include "../../app/Admin.php";
+// include "../../app/AdminLogin.php";
 
 
 $db = new DB();
 $connection = $db->connect();
 $adminDB = new Admin($connection);
+// $adminlogin = new AdminLogin($connection);
 
 
 
@@ -19,6 +21,7 @@ if(!isset($_SESSION['auth'])){
 
 include "header.php";
 include "nav.php";
+
 
 
 

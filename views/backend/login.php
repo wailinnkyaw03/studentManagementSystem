@@ -1,5 +1,7 @@
 <?php 
 session_start();
+
+
 include "header.php";
 
 if(isset($_SESSION['auth'])){
@@ -56,7 +58,7 @@ if(isset($_SESSION['auth'])){
                     </div>
                     
 
-                    
+                    <input type="hidden" name="id" value="<?php $login['id'] ?>">
                     <div class="form-group text-end">
                         <button class="btn btn-outline-secondary my-3 me-2" type="submit"><i class="fas fa-user me-2"></i>Login</button>
                         <!-- <button class="btn btn-outline-secondary my-3" type="reset"><i class="fa-solid fa-arrows-rotate me-2"></i>Reset</button> -->
