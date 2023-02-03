@@ -16,6 +16,10 @@ class AdminLogin{
         if($result == false){
             return false;
         }else{
+            $_SESSION["username"] = $result["name"];
+            $_SESSION["useremail"] = $result["email"];
+            $_SESSION["userpassword"] = $result["password"];
+            $_SESSION["userphone"] = $result["phone"];
             return true;
         }
     }

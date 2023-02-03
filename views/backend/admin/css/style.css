@@ -1,0 +1,13 @@
+.logo-border{
+    border: 1px solid #FD7F32;
+}
+.logo-border:hover{
+    background-color: #FD7F32;
+    color: #fff;
+}
+.logo-color{
+    color: #FD7F32;
+}
+.logo-bg-color{
+    background-color: #FD7F32;
+}

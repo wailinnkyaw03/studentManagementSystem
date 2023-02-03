@@ -9,10 +9,10 @@ if(isset($_SESSION['auth'])){
 }
 
 ?>
-<div class="container-fluid">
+<div class="container" style="margin-top:100px;">
     <!-- Page Heading -->
     <div class="row">
-        <div class="col-lg-6 offset-lg-3">
+        <div class="col-lg-4 offset-lg-4">
             <div class="align-items-center mb-4">
             <?php if(isset($_SESSION['expire'])){
                 $diff = time() - $_SESSION['expire'];
@@ -30,7 +30,8 @@ if(isset($_SESSION['auth'])){
                 </div>
             <?php }?>
 
-                <h1 class="h3 my-5 text-gray-800"><i class="fa-solid fa-house-lock me-2"></i> Admin Login</h1>
+                <img src="../../assets/img/k-logo.png" alt="" class="d-block m-auto" width="150px">
+                <h1 class="h4 mb-5 text-gray-800 text-center"><i class="fa-solid fa-house-lock me-2"></i> Admin Login</h1>
 
                 <form action="../../controllers/AdminLoginController.php" method="POST">
                     
@@ -60,7 +61,7 @@ if(isset($_SESSION['auth'])){
 
                     <input type="hidden" name="id" value="<?php $login['id'] ?>">
                     <div class="form-group text-end">
-                        <button class="btn btn-outline-secondary my-3 me-2" type="submit"><i class="fas fa-user me-2"></i>Login</button>
+                        <button class="btn logo-border logo-color btn-block my-5 me-2" type="submit"><i class="fas fa-user me-2"></i>Login</button>
                         <!-- <button class="btn btn-outline-secondary my-3" type="reset"><i class="fa-solid fa-arrows-rotate me-2"></i>Reset</button> -->
                     </div>
                     

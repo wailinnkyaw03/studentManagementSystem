@@ -6,8 +6,6 @@ include "../app/AdminLogin.php";
 
 $db = new DB();
 $connection = $db->connect();
-// $adminDB = new Admin($connection);
-// $admin = $adminDB->get($id);
 $login = new AdminLogin($connection);
 
 if(isset($_POST['email'])){
@@ -31,7 +29,6 @@ if(isset($_POST['email'])){
         $status = $login->check($email, $password);
         if($status){
             $_SESSION['auth'] = true;
-            $_SESSION['email'] = $status['email'];
         }else{
             $_SESSION['status'] = 'Email or Password was wrong';
             $_SESSION['expire'] = time();

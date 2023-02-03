@@ -3,27 +3,22 @@ session_start();
 
 include "../../app/DB.php";
 include "../../app/Admin.php";
-// include "../../app/AdminLogin.php";
+include "../../app/AdminLogin.php";
+include "../../app/Classes.php";
 
 
 $db = new DB();
 $connection = $db->connect();
 $adminDB = new Admin($connection);
-// $adminlogin = new AdminLogin($connection);
-
-
+$adminlogin = new AdminLogin($connection);
+$classDB = new Classes($connection);
 
 if(!isset($_SESSION['auth'])){
     header("location: login.php");
 }
 
-
-
 include "header.php";
 include "nav.php";
-
-
-
 
 if(isset($_GET["page"])){
     $page = $_GET["page"];
@@ -53,8 +48,11 @@ if(isset($_GET["page"])){
     }else if($page=="addClass"){//class
         include "./classes/addClass.php";
     }else if($page=="classlist"){
+        $classes = $classDB->getAll();
         include "./classes/classlist.php";
     }else if($page=="classedit"){
+        $id = $_GET['id'];
+        $class = $classDB->get($id);
         include "./classes/classedit.php";
     }else if($page=="addCourse"){//course
         include "./courses/addCourse.php";
@@ -70,8 +68,6 @@ if(isset($_GET["page"])){
         include "./fees/feeEdit.php";
     }
 }else{
-    // $id = $_GET['id'];
-    // $admin = $adminDB->check($id);
     include "dashboard.php";
 }
 
