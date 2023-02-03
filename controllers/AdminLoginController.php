@@ -31,11 +31,13 @@ if(isset($_POST['email'])){
         $status = $login->check($email, $password);
         if($status){
             $_SESSION['auth'] = true;
+            $_SESSION['email'] = $status['email'];
         }else{
             $_SESSION['status'] = 'Email or Password was wrong';
             $_SESSION['expire'] = time();
         }
         header("location: ../views/backend/admin.php");
+        // header("location: ".$_SERVER["HTTP_REFERER"]);
     }
 }
 
