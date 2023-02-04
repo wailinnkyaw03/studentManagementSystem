@@ -10,44 +10,14 @@
 .home-text{
     font-family: 'Fredoka One', cursive;
 }
-.seeCourses {
-    border-radius: 4px;
+.btn-outline-orange{
+    border: 1px solid #FD7F32;
+    color: #FD7F32;
+}
+.btn-outline-orange:hover{
     background-color: #FD7F32;
-    border: none;
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 28px;
-    width: 250px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
-    border-radius: 30px;
+    color: #fff;
 }
-.seeCourses span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-}
-  
-.seeCourses span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-}
-  
-.seeCourses:hover span {
-    padding-right: 25px;
-}
-  
-.seeCourses:hover span:after {
-    opacity: 1;
-    right: 0;
-}
-
 
 
 .reveal{
@@ -180,4 +150,11 @@
     height: 40px;
     background-color: white;
     border: none;
+}
+
+.v-line{
+    background-color: #FD7F32;
+    padding: 0px 4px;
+    border-radius: 4px;
+    margin-right: 10px;
 }
