@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="./assets/css/custom.css">
 
 </head>
-<body>
+<body id="home">
 <!-- nav start -->
-<nav class="navbar navbar-expand-sm bg-light navbar-light shadow sticky-top">
+<nav class="navbar navbar-expand-md bg-light navbar-light shadow sticky-top">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="#home">
             <img src="./assets/img/k-logo.png" width="40px" alt="">
             <span>Education</span>
         </a>
@@ -24,17 +24,20 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">HOME</a>
+                    <a class="nav-link" href="#home">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">ABOUT</a>
+                    <a class="nav-link" href="#about">ABOUT</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">COURSES</a>
+                    <a class="nav-link" href="#course">COURSES</a>
                 </li>  
+                <li class="nav-item">
+                    <a class="nav-link" href="#blog">BLOGS</a>
+                </li> 
                 <li class="nav-item me-3">
-                    <a class="nav-link" href="#">BLOGS</a>
-                </li>  
+                    <a class="nav-link" href="#contact">CONTACT</a>
+                </li>   
                 <li class="nav-item">
                     <a class="btn btn-outline-orange" href="#">ENROLL NOW</a>
                 </li>
@@ -45,7 +48,7 @@
 <div class="offcanvas offcanvas-end" style="width: 280px;" id="demo">
     <div class="offcanvas-header">
       <h3 class="offcanvas-title">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="#home">
             <img src="./assets/img/k-logo.png" width="40px" alt="">
             <span>Education</span>
         </a>
@@ -54,10 +57,11 @@
     </div>
     <div class="offcanvas-body">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="#"><i class="fas fa-house me-2 logo-color"></i>HOME</a>
-            <a class="list-group-item" href="#"><i class="fas fa-globe me-2 logo-color"></i>ABOUT</a>
-            <a class="list-group-item" href="#"><i class="fas fa-graduation-cap me-2 logo-color"></i>COURSES</a>
-            <a class="list-group-item" href="#"><i class="fas fa-house me-2 logo-color"></i>BLOG</a>
+            <a class="list-group-item" href="#home"><i class="fas fa-house me-2 logo-color"></i>HOME</a>
+            <a class="list-group-item" href="#about"><i class="fas fa-globe me-2 logo-color"></i>ABOUT</a>
+            <a class="list-group-item" href="#course"><i class="fas fa-graduation-cap me-2 logo-color"></i>COURSES</a>
+            <a class="list-group-item" href="#blog"><i class="fas fa-blog me-2 logo-color"></i>BLOG</a>
+            <a class="list-group-item" href="#contact"><i class="fas fa-phone-volume me-2 logo-color"></i>CONTACT</a>
         </div>
         <!-- <hr class="logo-color"> -->
         <a href="" class="btn btn-outline-orange d-block mt-3">ENROLL NOW</a>
@@ -67,7 +71,7 @@
 <!-- nav end -->   
 
 <!-- home start -->
-<div class="" id="home" style="overflow:hidden">
+<div class="home" id="home" style="overflow:hidden">
   <div class="row">
     <div class="col-lg-6 left-slide-in mt-5">
       <img src="./assets/img/home-img.png" alt="" class="d-block w-100">
@@ -84,22 +88,147 @@
 <!-- home end -->
 
 <!-- about start -->
-<div class="container mb-5">
+<div class="container py-5" style="overflow:hidden" id="about">
     <div class="row">
-        <div class="col-lg-6 leftin">
+        <div class="col-lg-6 leftin mb-5">
             <h3 class="my-4"><span class="v-line"></span> About Us</h3>
-            <p align="justify">We are training for people who want to get job opportunities with Web Developers. In our school, there are several courses like frontend courses and backend courses. In Frontend Courses, there are three courses such as Bootstrap Class, ReactJS Class and VueJS Class. In Backend Courses, there are also three courses such as JAVA & Spring Framework, JavaScript & NodeJS and PHP & Laravel. We have a lot of experienced tutors who worked in outsite foreign companies.</p>
+            <p align="justify" class="about-para">We are training for people who want to get job opportunities with Web Developers. In our school, there are several courses like frontend courses and backend courses. In Frontend Courses, there are three courses such as Bootstrap Class, ReactJS Class and VueJS Class. In Backend Courses, there are also three courses such as JAVA & Spring Framework, JavaScript & NodeJS and PHP & Laravel. We have a lot of experienced tutors who worked in outsite foreign companies.</p>
             <a class="btn btn-outline-orange" href="">READ MORE</a>
         </div>
-        <div class="col-lg-6 rightin">
-            <img src="./assets/img/slide2.jpg" class="w-100 mx-5 rounded" alt="">
+        <div class="col-lg-6 rightin mb-5" align="center">
+            <img src="./assets/img/slide2.jpg" class="w-100 rounded" alt="">
         </div>
     </div>
 </div>
-
 <!-- about end -->
-    
 
+<!-- course start -->
+<div class="container my-5" id="course" style="overflow:hidden">
+    <h3 class="my-5 leftin"><span class="v-line"></span> Our Courses</h3>
+    <div class="row">
+        <div class="col-lg-6 my-3 leftin">
+            <div class="course-card shadow">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="px-4 py-4">
+                            <small class="mb-3 d-block">COURSES</small>
+                            <h4 class="mb-4">Frontend Web Development</h4>
+                            <div class="text-center">
+                                <i class="fa-brands fa-html5 fa-2x me-2"></i>
+                                <i class="fa-brands fa-css3 fa-2x me-2"></i>
+                                <i class="fa-brands fa-js fa-2x me-2"></i>
+                                <i class="fa-brands fa-bootstrap fa-2x me-2"></i>
+                                <i class="fa-brands fa-vuejs fa-2x me-2"></i>
+                                <i class="fa-brands fa-react fa-2x me-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="px-4 py-4 grey-card shadow">
+                            <p>TRAININGS</p>
+                            <h4>Bootstrap, VueJS, ReactJS</h4>
+                            <p>HTML, CSS, JavaScript, JQuery, Bootstrap & VueJS or ReactJS</p>
+                            <button class="btn btn-orange mt-4">Course Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 my-3 rightin">
+            <div class="course-card shadow">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="px-4 py-4">
+                            <small class="mb-3 d-block">COURSES</small>
+                            <h4 class="mb-4">Backend Web Development</h4>
+                            <div class="text-center">
+                                <i class="fa-brands fa-php fa-2x me-2"></i>
+                                <i class="fa-brands fa-laravel fa-2x me-2"></i>
+                                <i class="fa-brands fa-node fa-2x me-2"></i>
+                                <i class="fa-brands fa-java fa-2x me-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="px-4 py-4 grey-card shadow">
+                            <p>TRAININGS</p>
+                            <h4>Laravel, NodeJS, Java</h4>
+                            <p>PHP to Laravel, JavaScript to NodeJS, Java to Java Spring Framework</p>
+                            <button class="btn btn-orange mt-4">Course Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<!-- course end -->
+
+
+<!-- blog start -->
+
+<!-- blog end -->
+
+<!-- contact start -->
+<div class="container-fluid py-4 bg-dark text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 my-3">
+                <img src="./assets/img/k-logo.png" width="100px" alt="">
+                <div class="row">
+                    <div class="col-1">
+                        <i class="fas fa-home logo-color"></i>
+                    </div>
+                    <div class="col-10">
+                        <p>28, Parami Road, 4th Ward, South Okkalarpa Tsp, Yangon.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1">
+                        <i class="fas fa-phone-volume logo-color"></i>
+                    </div>
+                    <div class="col-10">
+                        <p>+959 421023714</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1">
+                        <i class="fas fa-envelope logo-color"></i>
+                    </div>
+                    <div class="col-10">
+                        <p>info.keducation.com</p>
+                    </div>
+                </div>
+                <a class="logo-color social-icon me-2" href="https://www.facebook.com/profile.php?id=100087413634026" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a class="logo-color social-icon me-2" href="https://www.facebook.com/profile.php?id=100087413634026" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                <a class="logo-color social-icon me-2" href="https://www.facebook.com/profile.php?id=100087413634026" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <div class="col-md-3 my-3">
+
+            </div>
+            <div class="col-md-3 my-3">
+                
+            </div>
+            <div class="col-md-3 my-3">
+                
+            </div>
+        </div>
+    </div>
+    
+</div>
+<!-- contact end -->
+
+
+
+<!-- footer start -->
+<footer class="container-fluid logo-bg-color text-light pb-1 pt-3">
+    <div class="container">
+        <p class="float-end">Designed & Developed by <a class="text-white" href="https://www.facebook.com/profile.php?id=100087413634026" target="_blank">WLK-TECH</a></p>
+        <p class="text-start">&copy;Copyright @2023</p>
+    </div>
+</footer>
+<!-- footer end -->
 
 
 
