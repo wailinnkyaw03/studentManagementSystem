@@ -10,6 +10,10 @@
 .home-text{
     font-family: 'Fredoka One', cursive;
 }
+#home{
+    background: linear-gradient(to bottom, #ffcea2 0%, #f3681d 100%);
+    color: #fff;
+}
 .btn-outline-orange{
     border: 1px solid #FD7F32;
     color: #FD7F32;
@@ -137,20 +141,7 @@
     height: 200px;
 
 }
-.form-style{
-    width: 100%;
-    height: 40px;
-    border-radius: 30px;
-    border: none;
-    outline: none;
-}
-  
-.input-group-text{
-    border-radius: 30px;
-    height: 40px;
-    background-color: white;
-    border: none;
-}
+
 
 .v-line{
     background-color: #FD7F32;
