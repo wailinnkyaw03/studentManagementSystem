@@ -55,6 +55,7 @@ if(isset($_GET["page"])){
         $class = $classDB->get($id);
         include "./classes/classedit.php";
     }else if($page=="addCourse"){//course
+        $classes = $classDB->getAll();
         include "./courses/addCourse.php";
     }else if($page=="courselist"){
         include "./courses/courselist.php";
