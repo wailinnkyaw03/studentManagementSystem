@@ -43,10 +43,39 @@ if(isset($_POST['title'])){
                 $_SESSION['expire'] = time();
 
             }
-            header("location: ".$_SERVER["HTTP_REFERER"]);
+            // header("location: ".$_SERVER["HTTP_REFERER"]);
+            header("location: ../views/backend/admin.php?page=courselist");
+
+        }else if($_POST['action']=='update'){
+            $id = $_POST['id'];
+            $status = $courseDB->update($id, $title, $outline, $duration, $class_id);
+            if($status){
+                $_SESSION['status'] = 'Course Updated Successfully.';
+                $_SESSION['expire'] = time();
+
+            }else{
+                $_SESSION['status'] = 'Course Updating Fail.';
+                $_SESSION['expire'] = time();
+
+            }
+            // header("location: ".$_SERVER["HTTP_REFERER"]);
+            header("location: ../views/backend/admin.php?page=courselist");
 
         }
     }
+
+    
+}
+if($_GET['action']=='delete'){
+    $id = $_GET['id'];
+    $status = $courseDB->delete($id);
+    if($status){
+        $_SESSION['status'] = 'Course Deleted Successfully.';
+        $_SESSION['expire'] = time();
+
+    }
+    header("location: ".$_SERVER["HTTP_REFERER"]);
+
 }
 
 

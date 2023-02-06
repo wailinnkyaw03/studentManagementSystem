@@ -5,6 +5,7 @@ include "../../app/DB.php";
 include "../../app/Admin.php";
 include "../../app/AdminLogin.php";
 include "../../app/Classes.php";
+include "../../app/Course.php";
 
 
 $db = new DB();
@@ -12,6 +13,7 @@ $connection = $db->connect();
 $adminDB = new Admin($connection);
 $adminlogin = new AdminLogin($connection);
 $classDB = new Classes($connection);
+$courseDB = new Course($connection);
 
 if(!isset($_SESSION['auth'])){
     header("location: login.php");
@@ -58,8 +60,12 @@ if(isset($_GET["page"])){
         $classes = $classDB->getAll();
         include "./courses/addCourse.php";
     }else if($page=="courselist"){
+        $courses = $courseDB->getAll();
         include "./courses/courselist.php";
     }else if($page=="courseedit"){
+        $id = $_GET['id'];
+        $course = $courseDB->get($id);
+        $classes = $classDB->getAll();
         include "./courses/courseedit.php";
     }else if($page=="addfee"){//fee
         include "./fees/addfee.php";
