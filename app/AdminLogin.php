@@ -8,7 +8,7 @@ class AdminLogin{
 
     //login
     public function check($email, $password){
-        $state = $this->conn->prepare("SELECT * FROM users WHERE email=:email && password=:password");
+        $state = $this->conn->prepare("SELECT * FROM users WHERE email=:email && password=:password && role_id<=2");
         $state->bindParam(":email", $email);
         $state->bindParam(":password", $password);
         $state->execute();
