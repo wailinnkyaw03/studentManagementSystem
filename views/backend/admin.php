@@ -35,6 +35,10 @@ if(isset($_GET["page"])){
         $id = $_GET['id'];
         $admin = $adminDB->get($id);
         include "./admins/adminedit.php";
+    }else if($page=="detail"){
+        $id = $_GET['id'];
+        $admin = $adminDB->get($id);
+        include "./admins/detail.php";
     }else if($page=="addStudent"){//student
         include "./students/addStudent.php";
     }else if($page=="studentlist"){

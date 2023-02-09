@@ -21,7 +21,7 @@
 
                 <h1 class="h3 my-5 text-gray-800">Edit Admin</h1>
 
-                <form action="../../controllers/AdminController.php" method="post">
+                <form enctype="multipart/form-data" action="../../controllers/AdminController.php" method="post">
                     <div class="form-floating my-3">
                         <input type="text" class="form-control" id="name" name="name" value="<?php echo $admin['name'] ?>">
                         <label for="name">Username</label>
@@ -30,6 +30,11 @@
                                     <?php echo $_SESSION['name']; ?>
                                 </p>
                         <?php } ?>
+                    </div>
+                    <div class="form-floating my-3">
+                        <input type="file" class="form-control" id="image" name="image">
+                        <label for="image">Profile Image</label>
+                        
                     </div>
                     <div class="form-floating my-3">
                         <input type="email" class="form-control" id="email" name="email" value="<?php echo $admin['email'] ?>">
@@ -57,6 +62,11 @@
                                     <?php echo $_SESSION['phone']; ?>
                                 </p>
                         <?php } ?>
+                    </div>
+                    <div class="form-floating my-3">
+                        <input type="text" class="form-control" id="address" name="address" value="<?php echo $admin['address'] ?>">
+                        <label for="address">Address</label>
+                        
                     </div>
                     <input type="hidden" name="action" value="update">
                     <input type="hidden" name="id" value="<?php echo $admin['id'] ?>">

@@ -27,6 +27,7 @@ if(isset($_POST['email'])){
         unset($_SESSION['password']);
 
         $status = $login->check($email, $password);
+
         if($status){
             $_SESSION['auth'] = true;
         }else{

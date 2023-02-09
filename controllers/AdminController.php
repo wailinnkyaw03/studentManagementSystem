@@ -35,7 +35,8 @@ if(isset($_POST['name'])){
         unset($_SESSION['phone']);
 
         if($_POST['action']=='add'){
-            $status = $admin->create($name, $email, $password, $phone);
+            $role_id = 2;
+            $status = $admin->create($name, $email, $password, $phone, $role_id);
             if($status){
                 $_SESSION['status'] = "Admin User Created Successfully.";
                 $_SESSION['expire'] = time();
@@ -47,7 +48,17 @@ if(isset($_POST['name'])){
 
         }else if($_POST['action']=='update'){
             $id = $_POST['id'];
-            $status = $admin->update($id, $name, $email, $password, $phone);
+            $role_id = 2;
+            $address = $_POST['address'];
+            
+            //image
+            $image = $_FILES['image']['name'];
+            $tmp_name = $_FILES['image']['tmp_name'];
+            $folder = "../assets/profileImages/";
+            $saveImageName = uniqid().$image;
+            move_uploaded_file($tmp_name, $folder.$saveImageName);
+
+            $status = $admin->update($id, $name, $saveImageName, $email, $password, $phone, $address, $role_id);
             if($status){
                 $_SESSION['status'] = "Admin User Updated Successfully.";
                 $_SESSION['expire'] = time();

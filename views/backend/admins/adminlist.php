@@ -29,6 +29,7 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone</th>
+                        <th>Role</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -42,9 +43,11 @@
                         <td><?php echo $admin['name'] ?></td>
                         <td><?php echo $admin['email'] ?></td>
                         <td><?php echo $admin['phone'] ?></td>
+                        <td><?php echo $admin['roleName'] ?></td>
                         <td>
-                            <a href="admin.php?page=adminedit&id=<?php echo $admin['id'] ?>" class="text-decoration-none text-success"><i class="fas fa-user-plus me-1"></i></a>
-                            <a href="../../controllers/AdminController.php?action=delete&id=<?php echo $admin['id'] ?>" class="text-decoration-none text-danger"><i class="fas fa-user-minus"></i></a>
+                            <a class="btn btn-sm btn-primary" href="admin.php?page=detail&id=<?php echo $admin['id'] ?>">Detail</a>
+                            <a href="admin.php?page=adminedit&id=<?php echo $admin['id'] ?>" class="btn btn-sm btn-success">Edit</a>
+                            <a href="../../controllers/AdminController.php?action=delete&id=<?php echo $admin['id'] ?>" class="btn btn-sm btn-danger">Delete</a>
                         </td>
                         </tr>
                         <tr>

@@ -8,7 +8,7 @@ class AdminLogin{
 
     //login
     public function check($email, $password){
-        $state = $this->conn->prepare("SELECT * FROM admins WHERE email=:email && password=:password");
+        $state = $this->conn->prepare("SELECT * FROM users WHERE email=:email && password=:password");
         $state->bindParam(":email", $email);
         $state->bindParam(":password", $password);
         $state->execute();
@@ -17,9 +17,11 @@ class AdminLogin{
             return false;
         }else{
             $_SESSION["username"] = $result["name"];
+            $_SESSION["userimage"] = $result["image"];
             $_SESSION["useremail"] = $result["email"];
             $_SESSION["userpassword"] = $result["password"];
             $_SESSION["userphone"] = $result["phone"];
+            $_SESSION["useraddress"] = $result["address"];
             return true;
         }
     }
