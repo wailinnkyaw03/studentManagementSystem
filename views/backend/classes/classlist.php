@@ -33,10 +33,10 @@
 
                             <tr>
                             <th scope="row"><?php echo $no; ?></th>
-                            <td><?php echo $class['name'] ?></td>
+                            <td><?php echo $class['className'] ?></td>
                             <td>
-                                <a href="admin.php?page=classedit&id=<?php echo $class['id'] ?>" class="text-decoration-none text-success"><i class="fas fa-pen-to-square me-1"></i></a>
-                                <a href="../../controllers/ClassController.php?action=delete&id=<?php echo $class['id'] ?>" class="text-decoration-none text-danger"><i class="fas fa-trash"></i></a>
+                                <a href="admin.php?page=classedit&id=<?php echo $class['class_id'] ?>" class="text-decoration-none text-success"><i class="fas fa-pen-to-square me-1"></i></a>
+                                <a href="../../controllers/ClassController.php?action=delete&id=<?php echo $class['class_id'] ?>" class="text-decoration-none text-danger"><i class="fas fa-trash"></i></a>
                             </td>
                             </tr>
                             <tr>

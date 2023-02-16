@@ -53,7 +53,7 @@
                         <select class="form-select" id="class_id" name="class_id">
                             <option selected value="">Select Class Type</option>
                             <?php foreach($classes as $class){ ?>
-                                <option value="<?php echo $class['id'] ?>"><?php echo $class['name'] ?></option>
+                                <option value="<?php echo $class['class_id'] ?>"><?php echo $class['className'] ?></option>
                             <?php } ?>
                         </select>
                         <label for="course">Select Your Class Type</label>
@@ -64,7 +64,7 @@
                         <?php } ?>
                     </div>
                     <input type="hidden" name="action" value="update">
-                    <input type="hidden" name="id" value="<?php echo $course['id'] ?>">
+                    <input type="hidden" name="id" value="<?php echo $course['course_id'] ?>">
                     <div class="form-group text-end">
                         <button class="btn btn-outline-secondary my-3 me-2" type="submit"><i class="fas fa-pen-to-square me-2"></i>Edit Course</button>
                         <button class="btn btn-outline-secondary my-3" type="reset"><i class="fa-solid fa-arrows-rotate me-2"></i>Reset</button>

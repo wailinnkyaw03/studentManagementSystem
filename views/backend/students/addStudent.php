@@ -38,26 +38,28 @@
                         <label for="phone">Phone Number</label>
                     </div>
                     <div class="form-floating my-3">
+                        <input type="text" class="form-control" id="education" name="education" placeholder="education">
+                        <label for="education">Education Background</label>
+                    </div>
+                    <div class="form-floating my-3">
                         <input type="text" class="form-control" id="address" name="address" placeholder="address">
                         <label for="address">Address</label>
                     </div>
                     <div class="form-floating my-3">
                         <select class="form-select" id="classType" name="classType">
                             <option selected>Select Class Type</option>
-                            <option value="Zoom Class">Zoom Class</option>
-                            <option value="Video Class">Video Class</option>
+                            <?php foreach($classes as $class){ ?>
+                                <option value="<?php echo $class['class_id'] ?>"><?php echo $class['className'] ?></option>
+                            <?php } ?>
                         </select>
                         <label for="course">Select Your Class Type</label>
                     </div>
                     <div class="form-floating my-3">
                         <select class="form-select" id="course" name="course">
                             <option selected>Select Courses</option>
-                            <option value="ReactJS(Frontend Course)">ReactJS(Frontend Course)</option>
-                            <option value="Bootstrap(Frontend Course)">Bootstrap(Frontend Course)</option>
-                            <option value="VueJS(Frontend Course)">VueJS(Frontend Course)</option>
-                            <option value="PHP(Backend Course)">PHP(Backend Course)</option>
-                            <option value="Java(Backend Course)">Java(Backend Course)</option>
-                            <option value="NodeJS(Backend Course)">NodeJS(Backend Course)</option>
+                            <?php foreach($courses as $course){ ?>
+                                <option value="<?php echo $course['course_id'] ?>"><?php echo $course['title'] ?></option>
+                            <?php } ?>
                         </select>
                         <label for="course">Select Courses</label>
                     </div>

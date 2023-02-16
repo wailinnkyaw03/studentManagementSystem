@@ -6,6 +6,7 @@ include "../../app/Admin.php";
 include "../../app/AdminLogin.php";
 include "../../app/Classes.php";
 include "../../app/Course.php";
+include "../../app/Edu&Exp.php";
 
 
 $db = new DB();
@@ -14,6 +15,8 @@ $adminDB = new Admin($connection);
 $adminlogin = new AdminLogin($connection);
 $classDB = new Classes($connection);
 $courseDB = new Course($connection);
+$eduDB = new Education($connection);
+$expDB = new Experience($connection);
 
 if(!isset($_SESSION['auth'])){
     header("location: login.php");
@@ -34,12 +37,30 @@ if(isset($_GET["page"])){
     }else if($page=="adminedit"){
         $id = $_GET['id'];
         $admin = $adminDB->get($id);
+        $user_id = $_GET['id'];
+        $educations = $eduDB->getAll($user_id);
         include "./admins/adminedit.php";
     }else if($page=="detail"){
         $id = $_GET['id'];
         $admin = $adminDB->get($id);
-        include "./admins/detail.php";
+        $user_id = $_GET['id'];
+        $educations = $eduDB->getAll($user_id);
+        include "./admins/detail.php";//detail
+    }else if($page=="eduadd"){
+        $id = $_GET['id'];
+        $admin = $adminDB->get($id);
+        $user_id = $_GET['id'];
+        $educations = $eduDB->getAll($user_id);
+        include "./education/eduadd.php";//education
+    }else if($page=="eduedit"){
+        $id = $_GET['id'];
+        $admin = $adminDB->get($id);
+        $edu_id = $_GET['edu_id'];
+        $education = $eduDB->get($edu_id);
+        include "./education/eduedit.php";//education
     }else if($page=="addStudent"){//student
+        $classes = $classDB->getAll();
+        $courses = $courseDB->getAll();
         include "./students/addStudent.php";
     }else if($page=="studentlist"){
         include "./students/studentlist.php";

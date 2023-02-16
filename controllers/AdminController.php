@@ -50,6 +50,10 @@ if(isset($_POST['name'])){
             $id = $_POST['id'];
             $role_id = 2;
             $address = $_POST['address'];
+            $gender = $_POST['gender'];
+            $dob = $_POST['dob'];
+            $skills = $_POST['skills'];
+            $hobby = $_POST['hobby'];
             
             //image
             $image = $_FILES['image']['name'];
@@ -58,7 +62,7 @@ if(isset($_POST['name'])){
             $saveImageName = uniqid().$image;
             move_uploaded_file($tmp_name, $folder.$saveImageName);
 
-            $status = $admin->update($id, $name, $saveImageName, $email, $password, $phone, $address, $role_id);
+            $status = $admin->update($id, $name, $saveImageName, $email, $password, $phone, $address, $gender, $dob, $skills, $hobby, $role_id);
             if($status){
                 $_SESSION['status'] = "Admin User Updated Successfully.";
                 $_SESSION['expire'] = time();

@@ -39,10 +39,10 @@
                             <td><?php echo $course['title'] ?></td>
                             <td><?php echo $course['outline'] ?></td>
                             <td><?php echo $course['duration']." months" ?></td>
-                            <td><?php echo $course['name'] ?></td>
+                            <td><?php echo $course['className'] ?></td>
                             <td>
-                                <a href="admin.php?page=courseedit&id=<?php echo $course['id'] ?>" class="text-decoration-none text-success"><i class="fas fa-pen-to-square me-1"></i></a>
-                                <a href="../../controllers/CourseController.php?action=delete&id=<?php echo $course['id'] ?>" class="text-decoration-none text-danger"><i class="fas fa-trash"></i></a>
+                                <a href="admin.php?page=courseedit&id=<?php echo $course['course_id'] ?>" class="text-decoration-none text-success"><i class="fas fa-pen-to-square me-1"></i></a>
+                                <a href="../../controllers/CourseController.php?action=delete&id=<?php echo $course['course_id'] ?>" class="text-decoration-none text-danger"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php } ?>

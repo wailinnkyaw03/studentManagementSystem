@@ -49,9 +49,11 @@ class Admin{
 
         }
     }
-    public function update($id, $name, $image, $email, $password, $phone, $address, $role_id){
+    
+
+    public function update($id, $name, $image, $email, $password, $phone, $address, $gender, $dob, $skills, $hobby, $role_id){
         try{
-            $state = $this->conn->prepare("UPDATE users SET name=:name, image=:image, email=:email, password=:password, phone=:phone, address=:address, role_id=:role_id WHERE id=:id");
+            $state = $this->conn->prepare("UPDATE users SET name=:name, image=:image, email=:email, password=:password, phone=:phone, address=:address, gender=:gender, dob=:dob, skills=:skills, hobby=:hobby, role_id=:role_id WHERE id=:id");
             $state->bindParam(":id", $id);
             $state->bindParam(":name", $name);
             $state->bindParam(":image", $image);
@@ -59,6 +61,10 @@ class Admin{
             $state->bindParam(":password", $password);
             $state->bindParam(":phone", $phone);
             $state->bindParam(":address", $address);
+            $state->bindParam(":gender", $gender);
+            $state->bindParam(":dob", $dob);
+            $state->bindParam(":skills", $skills);
+            $state->bindParam(":hobby", $hobby);
             $state->bindParam(":role_id", $role_id);
             $state->execute();
             return true;
@@ -72,7 +78,7 @@ class Admin{
     //delete
     public function delete($id){
         try{
-            $state = $this->conn->prepare("DELETE FROM users WHERE id=:id");
+            $state = $this->conn->prepare("DELETE FROM users where id=:id");
             $state->bindParam(":id", $id);
             $state->execute();
             return true;

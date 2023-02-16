@@ -9,7 +9,7 @@ class Classes{
     //create
     public function create($name){
         try{
-            $state = $this->conn->prepare("INSERT INTO classes(name) VALUES(:name)");
+            $state = $this->conn->prepare("INSERT INTO classes(className) VALUES(:name)");
             $state->bindParam(":name", $name);
             $state->execute();
             return true;
@@ -37,7 +37,7 @@ class Classes{
     //update 
     public function get($id){
         try{
-            $state = $this->conn->prepare("SELECT * FROM classes WHERE id=:id");
+            $state = $this->conn->prepare("SELECT * FROM classes WHERE class_id=:id");
             $state->bindParam(":id", $id);
             $state->execute();
             $class = $state->fetch(PDO::FETCH_ASSOC);
@@ -50,7 +50,7 @@ class Classes{
     }
     public function update($id, $name){
         try{
-            $state = $this->conn->prepare("UPDATE classes SET name=:name WHERE id=:id");
+            $state = $this->conn->prepare("UPDATE classes SET className=:name WHERE class_id=:id");
             $state->bindParam(":id", $id);
             $state->bindParam(":name", $name);
             $state->execute();
@@ -64,7 +64,7 @@ class Classes{
     //delete
     public function delete($id){
         try{
-            $state = $this->conn->prepare("DELETE FROM classes WHERE id=:id");
+            $state = $this->conn->prepare("DELETE FROM classes WHERE class_id=:id");
             $state->bindParam(":id", $id);
             $state->execute();
             return true;
