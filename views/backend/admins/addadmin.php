@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid mt-5">
     <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-6 offset-lg-3">

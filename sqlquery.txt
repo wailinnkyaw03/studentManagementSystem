@@ -1,0 +1,26 @@
+Student Management 
+
+Roles #1 
+create table roles(id int primary key auto_increment, roleName varchar(30), created_at timestamp);
+
+Users #2
+create table users(id int primary key auto_increment, name varchar(50), image varchar(255), email varchar(255), password varchar(255), phone varchar(50), address varchar(255), gender char(10), dob date, skills text, hobbies varchar(255), edu_id int, exp_id int, course_id int, role_id int, foreign key(edu_id) references education(id), foreign key(exp_id) references experience(id), foreign key(course_id) references posts(id), foreign key(role_id) references roles(id));
+
+Education #3
+create table education(id int primary key auto_increment, university varchar(255), subject varchar(255), started_date date, ended_date date, user_id int, foreign key(user_id) references users(id));
+
+Experience #4
+create table experience(id int primary key auto_increment, company varchar(255), position varchar(255), jobDesc longtext, started_date date, ended_date date, user_id int, foreign key(user_id) references users(id));
+
+Categories #5
+create table categories(id int primary key auto_increment, name varchar(255), created_at timestamp, created_by int, foreign key(created_by) references users(id));
+
+Classes #6
+create table classes(id int primary key auto_increment, type varchar(100), created_by int, created_at timestamp, foreign key(created_by) references users(id));
+
+Fees #7
+create table fees(id int primary key auto_increment, feeamount float, created_by int, created_at timestamp, foreign key(created_by) references users(id));
+
+Posts #8
+create table posts(id int primary key auto_increment, title varchar(255), image varchar(255), description longtext, posted_date timestamp, created_by int, updated_by int, class_id int, fee_id int, tutor_id int, category_id int, foreign key(created_by) references users(id), foreign key(updated_by) references users(id), foreign key(class_id) references classes(id), foreign key(fee_id) references fees(id), foreign key(tutor_id) references users(id), foreign key(category_id) references categories(id));
+

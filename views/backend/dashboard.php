@@ -1,6 +1,6 @@
                 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid mt-5">
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -333,21 +333,9 @@
             </div>
             <!-- End of Main Content -->
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; WLK-TECH 2023</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
+            
 
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
+        
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">

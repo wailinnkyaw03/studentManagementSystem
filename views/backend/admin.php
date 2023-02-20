@@ -2,21 +2,21 @@
 session_start();
 
 include "../../app/DB.php";
-include "../../app/Admin.php";
+include "../../app/QueryBuilder.php";
 include "../../app/AdminLogin.php";
-include "../../app/Classes.php";
-include "../../app/Course.php";
-include "../../app/Edu&Exp.php";
+// include "../../app/Classes.php";
+// include "../../app/Course.php";
+// include "../../app/Edu&Exp.php";
 
 
 $db = new DB();
 $connection = $db->connect();
-$adminDB = new Admin($connection);
+$query = new QueryBuilder($connection);
 $adminlogin = new AdminLogin($connection);
-$classDB = new Classes($connection);
-$courseDB = new Course($connection);
-$eduDB = new Education($connection);
-$expDB = new Experience($connection);
+// $classDB = new Classes($connection);
+// $courseDB = new Course($connection);
+// $eduDB = new Education($connection);
+// $expDB = new Experience($connection);
 
 if(!isset($_SESSION['auth'])){
     header("location: login.php");
@@ -31,33 +31,89 @@ if(isset($_GET["page"])){
         include "dashboard.php";
     }else if($page=="addAdmin"){//admin
         include "./admins/addAdmin.php";
+
     }else if($page=="adminlist"){
-        $admins = $adminDB->getAll();
+        $cols = "users.*, users.id as u_id, roles.id as r_id, roles.roleName";
+        $join = "inner join roles on users.role_id=roles.id";
+        $where = "roles.id=2 || roles.id=1";
+        $admins=$query->getAll("users", $cols, $join, $where, "users.id DESC");
         include "./admins/adminlist.php";
+
     }else if($page=="adminedit"){
         $id = $_GET['id'];
-        $admin = $adminDB->get($id);
-        $user_id = $_GET['id'];
-        $educations = $eduDB->getAll($user_id);
+        $cols = "users.*, users.id as u_id, roles.id as r_id, roles.roleName";
+        $join = "inner join roles on users.role_id=roles.id";
+        $where = "users.id=$id";
+        $admin = $query->get("users", $cols, $join, $where);
+
+        
+        $where = "user_id=$id";
+        $educations = $query->getAll("education", "*", null, $where, "id DESC");
+        $experiences = $query->getAll("experience", "*", null, $where, "id DESC");
         include "./admins/adminedit.php";
+        
     }else if($page=="detail"){
         $id = $_GET['id'];
-        $admin = $adminDB->get($id);
-        $user_id = $_GET['id'];
-        $educations = $eduDB->getAll($user_id);
+        $cols = "users.*, users.id as u_id, roles.id as r_id, roles.roleName";
+        $join = "inner join roles on users.role_id=roles.id";
+        $where = "users.id=$id";
+        $admin = $query->get("users", $cols, $join, $where);
+
+        $where = "user_id=$id";
+        $educations = $query->getAll("education", "*", null, $where, "id DESC");
+        $experiences = $query->getAll("experience", "*", null, $where, "id DESC");
         include "./admins/detail.php";//detail
+
     }else if($page=="eduadd"){
         $id = $_GET['id'];
-        $admin = $adminDB->get($id);
-        $user_id = $_GET['id'];
-        $educations = $eduDB->getAll($user_id);
+        $cols = "users.*, users.id as u_id, roles.id as r_id, roles.roleName";
+        $join = "inner join roles on users.role_id=roles.id";
+        $where = "users.id=$id";
+        $admin = $query->get("users", $cols, $join, $where);
+
+        $where = "user_id=$id";
+        $educations = $query->getAll("education", "*", null, $where, "id DESC");
         include "./education/eduadd.php";//education
+
     }else if($page=="eduedit"){
         $id = $_GET['id'];
-        $admin = $adminDB->get($id);
+        $cols = "users.*, users.id as u_id, roles.id as r_id, roles.roleName";
+        $join = "inner join roles on users.role_id=roles.id";
+        $where = "users.id=$id";
+        $admin = $query->get("users", $cols, $join, $where);
+
         $edu_id = $_GET['edu_id'];
-        $education = $eduDB->get($edu_id);
+        $cols = "education.*, education.id as e_id, users.id as u_id, users.*";
+        $join = "inner join users on education.user_id=users.id";
+        $where = "education.id=$edu_id && users.id=$id";
+        $education = $query->get("education", $cols, $join, $where);
         include "./education/eduedit.php";//education
+        
+    }else if($page=="expadd"){
+        $id = $_GET['id'];
+        $cols = "users.*, users.id as u_id, roles.id as r_id, roles.roleName";
+        $join = "inner join roles on users.role_id=roles.id";
+        $where = "users.id=$id";
+        $admin = $query->get("users", $cols, $join, $where);
+
+        $where = "user_id=$id";
+        $experiences = $query->getAll("experience", "*", null, $where, "id DESC");
+        include "./experience/expadd.php";//experience
+
+    }else if($page=="expedit"){
+        $id = $_GET['id'];
+        $cols = "users.*, users.id as u_id, roles.id as r_id, roles.roleName";
+        $join = "inner join roles on users.role_id=roles.id";
+        $where = "users.id=$id";
+        $admin = $query->get("users", $cols, $join, $where);
+
+        $exp_id = $_GET['exp_id'];
+        $cols = "experience.*, experience.id as e_id, users.id as u_id, users.*";
+        $join = "inner join users on experience.user_id=users.id";
+        $where = "experience.id=$exp_id && users.id=$id";
+        $experience = $query->get("experience", $cols, $join, $where);
+        include "./experience/expedit.php";//experience
+        
     }else if($page=="addStudent"){//student
         $classes = $classDB->getAll();
         $courses = $courseDB->getAll();

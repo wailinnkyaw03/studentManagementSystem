@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid mt-5">
     <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-8 offset-lg-2">
@@ -74,7 +74,8 @@
                     
                     
                     <input type="hidden" name="action" value="update">
-                    <input type="text" name="edu_id" value="<?php echo $education['edu_id'] ?>">
+                    <input type="hidden" name="edu_id" value="<?php echo $education['e_id'] ?>">
+                    <input type="hidden" name="user_id" value="<?php echo $education['u_id'] ?>">
                     <div class="form-group text-end">
                         <button class="btn btn-outline-secondary my-3 me-2" type="submit"><i class="fas fa-plus me-2"></i>Edit Education</button>
                         <a href="admin.php?page=adminedit&id=<?php echo $admin['id'] ?>" class="btn btn-outline-secondary my-3">Back</a>

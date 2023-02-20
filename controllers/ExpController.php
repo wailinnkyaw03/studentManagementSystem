@@ -2,27 +2,29 @@
 session_start();
 
 include "../app/DB.php";
-// include "../app/Admin.php";
 include "../app/QueryBuilder.php";
 
 $db = new DB();
 $connection = $db->connect();
-// $admin = new Admin($connection);
-$eduDB = new QueryBuilder($connection);
+$expDB = new QueryBuilder($connection);
 
-if(isset($_POST['university'])){
-    $university = $_POST['university'];
-    $subject = $_POST['subject'];
+if(isset($_POST['company'])){
+    $company = $_POST['company'];
+    $position = $_POST['position'];
+    $jobDesc = $_POST['jobDesc'];
     $started_date = $_POST['started_date'];
     $ended_date = $_POST['ended_date'];
     $user_id = $_POST['user_id'];
 
-    if($university == "" | $subject == "" | $started_date =="" | $ended_date == ""){
-        if($university==""){
-            $_SESSION['university'] = "School/University Must Not Be Empty";
+    if($company == "" | $position == "" | $jobDesc == "" | $started_date =="" | $ended_date == ""){
+        if($company==""){
+            $_SESSION['company'] = "Company Name Must Not Be Empty";
         }
-        if($subject==""){
-            $_SESSION['subject'] = "Subject Must Not Be Empty";
+        if($position==""){
+            $_SESSION['position'] = "Position Must Not Be Empty";
+        }
+        if($jobDesc==""){
+            $_SESSION['jobDesc'] = "Job Description Must Not Be Empty";
         }
         if($started_date==""){
             $_SESSION['started_date'] = "Started Date Must Not Be Empty";
@@ -32,61 +34,65 @@ if(isset($_POST['university'])){
         }
         header("location: ".$_SERVER["HTTP_REFERER"]);
     }else{
-        unset($_SESSION['university']);
-        unset($_SESSION['subject']);
+        unset($_SESSION['company']);
+        unset($_SESSION['position']);
+        unset($_SESSION['jobDesc']);
         unset($_SESSION['started_date']);
         unset($_SESSION['ended_date']);
     
         if($_POST['action'] == "add"){
             $user_id = $_POST['user_id'];
             $datas = [
-                "university" => $university,
-                "subject" => $subject,
+                "company" => $company,
+                "position" => $position,
+                "jobDesc" => $jobDesc,
                 "started_date" => $started_date,
                 "ended_date" => $ended_date,
                 "user_id" => $user_id
             ];
 
-            $status = $eduDB->create("education", $datas);
+            $status = $expDB->create("experience", $datas);
             if($status){
-                $_SESSION['status'] = "Education Added Successfully";
+                $_SESSION['status'] = "Experience Added Successfully";
                 $_SESSION['expire'] = time();
             }else{
-                $_SESSION['status'] = "Education Addition Fail";
+                $_SESSION['status'] = "Experience Addition Fail";
                 $_SESSION['expire'] = time();
             }
             header("location: ".$_SERVER["HTTP_REFERER"]);
         }else if($_POST['action'] == "update"){
             $user_id = $_POST['user_id'];
-            $id = $_POST['edu_id'];
+            $id = $_POST['exp_id'];
             $datas = [
-                "university" => $university,
-                "subject" => $subject,
+                "company" => $company,
+                "position" => $position,
+                "jobDesc" => $jobDesc,
                 "started_date" => $started_date,
-                "ended_date" => $ended_date
+                "ended_date" => $ended_date,
+                "user_id" => $user_id,
+                "id" => $id
             ];
+
             $edits = "";
             foreach($datas as $key=>$value){
                 // $edit .= $key.'=:'.$key; 
                 $edits .= "$key=:$key,"; 
             }
             $edits = rtrim($edits, ',');
-            $id = $_POST['edu_id'];
+            $id = $_POST['exp_id'];
 
-            $status = $eduDB->update("education", $datas, $edits, $id);
+            $status = $expDB->update("experience", $datas, $edits, $id);
             if($status){
-                $_SESSION['status'] = "Education Updated Successfully";
+                $_SESSION['status'] = "Experience Updated Successfully";
                 $_SESSION['expire'] = time();
             }else{
-                $_SESSION['status'] = "Education Updating Fail";
+                $_SESSION['status'] = "Experience Updating Fail";
                 $_SESSION['expire'] = time();
             }
             header("location: ".$_SERVER["HTTP_REFERER"]);
-            // header("location: ../views/backend/admin.php?page=eduadd");
+            // header("location: ../views/backend/admin.php?page=expadd");
         }
     }
 
 }
-
-
 ?>

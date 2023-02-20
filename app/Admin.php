@@ -26,7 +26,7 @@ class Admin{
     //retrieve
     public function getAll(){
         try{
-            $state = $this->conn->prepare("SELECT * FROM users INNER JOIN roles on users.role_id=roles.role_id");
+            $state = $this->conn->prepare("SELECT * FROM users INNER JOIN roles on users.role_id=roles.role_id WHERE users.role_id=1 || users.role_id=2");
             $state->execute();
             $admins = $state->fetchAll(PDO::FETCH_ASSOC);
             return $admins;
@@ -51,9 +51,9 @@ class Admin{
     }
     
 
-    public function update($id, $name, $image, $email, $password, $phone, $address, $gender, $dob, $skills, $hobby, $role_id){
+    public function update($id, $name, $image, $email, $password, $phone, $address, $gender, $dob, $skills, $hobbies, $role_id){
         try{
-            $state = $this->conn->prepare("UPDATE users SET name=:name, image=:image, email=:email, password=:password, phone=:phone, address=:address, gender=:gender, dob=:dob, skills=:skills, hobby=:hobby, role_id=:role_id WHERE id=:id");
+            $state = $this->conn->prepare("UPDATE users SET name=:name, image=:image, email=:email, password=:password, phone=:phone, address=:address, gender=:gender, dob=:dob, skills=:skills, hobbies=:hobbies, role_id=:role_id WHERE id=:id");
             $state->bindParam(":id", $id);
             $state->bindParam(":name", $name);
             $state->bindParam(":image", $image);
@@ -64,7 +64,7 @@ class Admin{
             $state->bindParam(":gender", $gender);
             $state->bindParam(":dob", $dob);
             $state->bindParam(":skills", $skills);
-            $state->bindParam(":hobby", $hobby);
+            $state->bindParam(":hobbies", $hobbies);
             $state->bindParam(":role_id", $role_id);
             $state->execute();
             return true;
