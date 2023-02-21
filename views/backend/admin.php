@@ -45,6 +45,7 @@ if(isset($_GET["page"])){
         $join = "inner join roles on users.role_id=roles.id";
         $where = "users.id=$id";
         $admin = $query->get("users", $cols, $join, $where);
+        
 
         
         $where = "user_id=$id";

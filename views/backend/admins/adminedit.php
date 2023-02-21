@@ -23,7 +23,7 @@
 
                 <form enctype="multipart/form-data" action="../../controllers/AdminController.php" method="post">
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-5">
                             <div class="form-floating my-3">
                                 <input type="text" class="form-control" id="name" name="name" value="<?php echo $admin['name'] ?>">
                                 <label for="name">Username</label>
@@ -68,6 +68,11 @@
                             <div class="form-floating my-3">
                                 <input type="text" class="form-control" id="address" name="address" value="<?php echo $admin['address'] ?>">
                                 <label for="address">Address</label>
+                                <?php if(isset($_SESSION['address'])){ ?>
+                                        <p class="text-danger">
+                                            <?php echo $_SESSION['address']; ?>
+                                        </p>
+                                <?php } ?>
                             </div>
                             <div class="my-3">
                                 <div>
@@ -83,21 +88,41 @@
                                         <label for="female" class="form-label">Female</label>
                                     </div>
                                 </div>
+                                <?php if(isset($_SESSION['gender'])){ ?>
+                                        <p class="text-danger">
+                                            <?php echo $_SESSION['gender']; ?>
+                                        </p>
+                                <?php } ?>
                             </div>
                             <div class="form-floating my-3">
                                 <input type="date" class="form-control" id="dob" name="dob" placeholder="dob" value="<?php echo $admin['dob'] ?>">
                                 <label for="dob">Date Of Birth</label>
+                                <?php if(isset($_SESSION['dob'])){ ?>
+                                        <p class="text-danger">
+                                            <?php echo $_SESSION['dob']; ?>
+                                        </p>
+                                <?php } ?>
                             </div>
                             <div class="form-floating my-3">
                                 <input type="text" class="form-control" id="skills" name="skills" placeholder="HTML, CSS, JavaScript, Bootstrap" value="<?php echo $admin['skills'] ?>">
-                                <label for="skills">Skills (eg. HTML, CSS, JavaScript, Bootstrap, ...)</label>
+                                <label for="skills">Skills (eg. HTML, CSS, JavaScript, Bootstrap, or Some Skills ...)</label>
+                                <?php if(isset($_SESSION['skills'])){ ?>
+                                        <p class="text-danger">
+                                            <?php echo $_SESSION['skills']; ?>
+                                        </p>
+                                <?php } ?>
                             </div>
                             <div class="form-floating my-3">
                                 <input type="text" class="form-control" id="hobbies" name="hobbies" placeholder="HTML, CSS, JavaScript, Bootstrap" value="<?php echo $admin['hobbies'] ?>">
                                 <label for="hobbies">Hobbies (eg. Swimming, Football, ...)</label>
+                                <?php if(isset($_SESSION['hobbies'])){ ?>
+                                        <p class="text-danger">
+                                            <?php echo $_SESSION['hobbies']; ?>
+                                        </p>
+                                <?php } ?>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-7">
                             <div class="my-3">
                                 <div class="label">
                                     <label for="" class="form-label">Education Background</label>

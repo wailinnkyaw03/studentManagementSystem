@@ -55,41 +55,98 @@ if(isset($_POST['name'])){
             $skills = $_POST['skills'];
             $hobbies = $_POST['hobbies'];
 
-            //image
-            $image_arr = $_FILES['image']['name'];
-            $tmp_name = $_FILES['image']['tmp_name'];
-            $folder = "../assets/profileImages/";
-            $image = uniqid().$image_arr;
-            move_uploaded_file($tmp_name, $folder.$image);
+            if($address == "" | $gender == "" | $dob == "" | $skills == "" | $hobbies == ""){
+                if($address == ""){
+                    $_SESSION['address'] = "*Address Must Not Be Empty!";
+                }
+                if($gender == ""){
+                    $_SESSION['gender'] = "*Gender Must Not Be Empty!";
+                }
+                if($dob == ""){
+                    $_SESSION['dob'] = "*Birthday Must Not Be Empty!";
+                }
+                if($skills == ""){
+                    $_SESSION['skills'] = "*Skills Must Not Be Empty!";
+                }if($hobbies == ""){
+                    $_SESSION['hobbies'] = "*Please Write Down At Least 1 Hobby!";
+                }
+                header("location: ".$_SERVER["HTTP_REFERER"]);
+            }else{
+                unset($_SESSION['name']);
+                unset($_SESSION['email']);
+                unset($_SESSION['password']);
+                unset($_SESSION['phone']);
 
-            $datas=[
-                "name" => $name,
-                "image" => $image,
-                "email" => $email,
-                "password" => $password,
-                "phone" => $phone,
-                "address" => $address,
-                "gender" => $gender,
-                "dob" => $dob,
-                "skills" => $skills,
-                "hobbies" => $hobbies,
-                "role_id" => 2
-            ];
+                //image
+                $image_arr = $_FILES['image']['name'];
+                $tmp_name = $_FILES['image']['tmp_name'];
+                $folder = "../assets/profileImages/";
+                $image = uniqid("admin").$image_arr;
+                
+                move_uploaded_file($tmp_name, $folder.$image);
 
-            $edits = "";
-            foreach($datas as $key=>$value){
-                // $edit .= $key.'=:'.$key; 
-                $edits .= "$key=:$key,"; 
-            }
-            $edits = rtrim($edits, ',');
-            $id = $_POST['id'];
+                
 
-            $status = $admin->update("users", $datas, $edits, $id);
-            if($status){
-                $_SESSION['status']="Users Updated Successfully";
-                $_SESSION['expire']=time();
-            }
-            header("location: ../views/backend/admin.php?page=adminlist");
+                $id = $_POST['id'];
+                // $status = $admin->photoCheck("users", $id);
+                
+                if($image_arr != null){
+                    $datas=[
+                        "name" => $name,
+                        "image" => $image,
+                        "email" => $email,
+                        "password" => $password,
+                        "phone" => $phone,
+                        "address" => $address,
+                        "gender" => $gender,
+                        "dob" => $dob,
+                        "skills" => $skills,
+                        "hobbies" => $hobbies,
+                        "role_id" => 2
+                    ];
+                    $edits = "";
+                    foreach($datas as $key=>$value){
+                        // $edit .= $key.'=:'.$key; 
+                        $edits .= "$key=:$key,"; 
+                    }
+                    $edits = rtrim($edits, ',');
+                    
+                    $status = $admin->update("users", $datas, $edits, $id);
+                    if($status){
+                        $_SESSION['status']="Users Updated Successfully With Image";
+                        $_SESSION['expire']=time();
+                    }
+                    header("location: ../views/backend/admin.php?page=adminlist");
+
+                }else{
+                    $datas=[
+                        "name" => $name,
+                        "email" => $email,
+                        "password" => $password,
+                        "phone" => $phone,
+                        "address" => $address,
+                        "gender" => $gender,
+                        "dob" => $dob,
+                        "skills" => $skills,
+                        "hobbies" => $hobbies,
+                        "role_id" => 2
+                    ];
+                    $edits = "";
+                    foreach($datas as $key=>$value){
+                        // $edit .= $key.'=:'.$key; 
+                        $edits .= "$key=:$key,"; 
+                    }
+                    $edits = rtrim($edits, ',');
+                    
+                    $status = $admin->update("users", $datas, $edits, $id);
+                    if($status){
+                        $_SESSION['status']="Users Updated Successfully without image";
+                        $_SESSION['expire']=time();
+                    }
+                    header("location: ../views/backend/admin.php?page=adminlist");
+                }
+
+            } 
 
         }
     }
