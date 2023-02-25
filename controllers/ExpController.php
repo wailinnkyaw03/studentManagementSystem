@@ -73,15 +73,9 @@ if(isset($_POST['company'])){
                 "id" => $id
             ];
 
-            $edits = "";
-            foreach($datas as $key=>$value){
-                // $edit .= $key.'=:'.$key; 
-                $edits .= "$key=:$key,"; 
-            }
-            $edits = rtrim($edits, ',');
             $id = $_POST['exp_id'];
 
-            $status = $expDB->update("experience", $datas, $edits, $id);
+            $status = $expDB->update("experience", $datas, $id);
             if($status){
                 $_SESSION['status'] = "Experience Updated Successfully";
                 $_SESSION['expire'] = time();
@@ -94,5 +88,14 @@ if(isset($_POST['company'])){
         }
     }
 
+}
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    $status = $expDB->delete("experience", $id);
+    if($status){
+        $_SESSION['status']="Experience Deleted Successfully";
+        $_SESSION['expire']=time();
+    }
+    header("location: ".$_SERVER['HTTP_REFERER']);
 }
 ?>

@@ -2,22 +2,27 @@
 session_start();
 
 include "../app/DB.php";
-include "../app/Classes.php";
+include "../app/QueryBuilder.php";
 
 $db = new DB();
 $connection = $db->connect();
-$classes = new Classes($connection);
+$classes = new QueryBuilder($connection);
 
-if(isset($_POST['name'])){
-    $name = $_POST['name'];
-    if($name == ""){
-        $_SESSION['name'] = "Class Type Must Not Be Empty";
+if(isset($_POST['type'])){
+    $type = $_POST['type'];
+    if($type == ""){
+        $_SESSION['type'] = "Class Type Must Not Be Empty";
         header("location: ".$_SERVER["HTTP_REFERER"]);
     }else{
-        unset($_SESSION['name']);
+        unset($_SESSION['type']);
 
         if($_POST['action']=='add'){
-            $status = $classes->create($name);
+            $created_by = $_POST['created_by'];
+            $datas = [
+                "type"=> $type,
+                "created_by"=>$created_by
+            ];
+            $status = $classes->create("classes", $datas);
             if($status){
                 $_SESSION['status'] = "Class Type Added Successfully";
                 $_SESSION['expire'] = time();
@@ -29,7 +34,13 @@ if(isset($_POST['name'])){
 
         }else if($_POST['action']=='update'){
             $id = $_POST['id'];
-            $status = $classes->update($id, $name);
+            $created_by = $_POST['created_by'];
+            $datas = [
+                "type"=> $type,
+                "created_by"=>$created_by
+            ];
+
+            $status = $classes->update("classes", $datas, $id);
             
             if($status){
                 $_SESSION['status'] = "Class Type Updated Successfully";
@@ -44,12 +55,12 @@ if(isset($_POST['name'])){
     }
 }
 
-if($_GET['action']=='delete'){
+if(isset($_GET['id'])){
     $id = $_GET['id'];
-    $status = $classes->delete($id);
+    $status = $classes->delete("classes", $id);
     if($status){
-        $_SESSION['status'] = "Class Type Deleted Successfully";
-        $_SESSION['expire'] = time();
+        $_SESSION['status']="Classes Deleted Successfully";
+        $_SESSION['expire']=time();
     }
     header("location: ".$_SERVER["HTTP_REFERER"]);
 }

@@ -32,7 +32,7 @@ class QueryBuilder{
         }
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $results = $stmt->fetchAll();
         return $results;
     
     }
@@ -51,14 +51,7 @@ class QueryBuilder{
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
-    // public function get($table, $cols, $id){
-    //     $sql = 'SELECT '.$cols.' FROM '.$table.' WHERE id= :id';
-    //     $stmt = $this->conn->prepare($sql);
-    //     $stmt->bindParam(":id", $id);
-    //     $stmt->execute();
-    //     $result = $stmt->fetch();
-    //     return $result;
-    // }
+    
 
     //update
     public function update($table, $datas, $id){

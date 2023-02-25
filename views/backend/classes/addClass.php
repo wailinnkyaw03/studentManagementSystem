@@ -22,15 +22,15 @@
 
                 <form action="../../controllers/ClassController.php" method="post">
                     <div class="form-floating my-3">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="name">
-                        <label for="name">Type Name</label>
-                        <?php if(isset($_SESSION['name'])){ ?>
+                        <input type="text" class="form-control" id="type" name="type" placeholder="type">
+                        <label for="type">Type Name</label>
+                        <?php if(isset($_SESSION['type'])){ ?>
                                 <p class="text-danger">
-                                    <?php echo $_SESSION['name']; ?>
+                                    <?php echo $_SESSION['type']; ?>
                                 </p>
                         <?php } ?>
                     </div>
-                    
+                    <input type="hidden" name="created_by" value="<?php echo $_SESSION['user_id'] ?>">
                     <input type="hidden" name="action" value="add">
                     <div class="form-group text-end">
                         <button class="btn btn-outline-secondary my-3 me-2" type="submit"><i class="fas fa-plus-circle me-2"></i>Add Class</button>

@@ -49,7 +49,7 @@
                         <select class="form-select" id="classType" name="classType">
                             <option selected>Select Class Type</option>
                             <?php foreach($classes as $class){ ?>
-                                <option value="<?php echo $class['class_id'] ?>"><?php echo $class['className'] ?></option>
+                                <option value="<?php echo $class['id'] ?>"><?php echo $class['type'] ?></option>
                             <?php } ?>
                         </select>
                         <label for="course">Select Your Class Type</label>

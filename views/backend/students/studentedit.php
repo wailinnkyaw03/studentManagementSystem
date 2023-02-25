@@ -44,8 +44,9 @@
                     <div class="form-floating my-3">
                         <select class="form-select" id="classType" name="classType">
                             <option selected>Select Class Type</option>
-                            <option value="Zoom Class">Zoom Class</option>
-                            <option value="Video Class">Video Class</option>
+                            <?php foreach($classes as $class){ ?>
+                                <option value="<?php echo $class['id'] ?>"><?php echo $class['type'] ?></option>
+                            <?php } ?>
                         </select>
                         <label for="course">Select Your Class Type</label>
                     </div>

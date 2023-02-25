@@ -70,7 +70,7 @@
                             </div>
                             <div class="col-sm-12 my-1">
                                 <div class="form-floating">
-                                    <textarea name="jobDesc" id="jobDesc" cols="30" rows="10"><?php $experience['jobDesc'] ?></textarea>
+                                    <textarea name="jobDesc" id="jobDesc" cols="30" rows="10"><?php echo $experience['jobDesc'] ?></textarea>
                                     <?php if(isset($_SESSION['jobDesc'])){ ?>
                                             <p class="text-danger">
                                                 <?php echo $_SESSION['jobDesc']; ?>
@@ -88,7 +88,7 @@
                     <input type="hidden" name="user_id" value="<?php echo $experience['u_id'] ?>">
                     <div class="form-group text-end">
                         <button class="btn btn-outline-secondary my-3 me-2" type="submit"><i class="fas fa-plus me-2"></i>Edit Experience</button>
-                        <a href="admin.php?page=adminedit&id=<?php echo $admin['id'] ?>" class="btn btn-outline-secondary my-3">Back</a>
+                        
                     </div>
                 </form>
 

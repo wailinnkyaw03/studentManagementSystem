@@ -23,10 +23,12 @@
                     <tr>
                         <th>#</th>
                         <th>Title</th>
-                        <th>Outlines</th>
                         <th>Durations</th>
+                        <th>Started Date</th>
                         <th>Class Type</th>
-                        <!-- <th>Tutor Name</th> -->
+                        <th>Fee</th>
+                        <th>Tutor</th>
+                        <th>Created By</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -37,12 +39,15 @@
                         <tr>
                             <td><?php echo $no++ ?></td>
                             <td><?php echo $course['title'] ?></td>
-                            <td><?php echo $course['outline'] ?></td>
                             <td><?php echo $course['duration']." months" ?></td>
-                            <td><?php echo $course['className'] ?></td>
+                            <td><?php echo $course['started_date'] ?></td>
+                            <td><?php echo $course['type'] ?></td>
+                            <td><?php echo $course['feeamount']." MMK" ?></td>
+                            <td><?php echo $course['name'] ?></td>
+                            <td><?php echo $course['created_by'] ?></td>
                             <td>
-                                <a href="admin.php?page=courseedit&id=<?php echo $course['course_id'] ?>" class="text-decoration-none text-success"><i class="fas fa-pen-to-square me-1"></i></a>
-                                <a href="../../controllers/CourseController.php?action=delete&id=<?php echo $course['course_id'] ?>" class="text-decoration-none text-danger"><i class="fas fa-trash"></i></a>
+                                <a href="admin.php?page=courseedit&id=<?php echo $course['c_id'] ?>" class="text-decoration-none text-success"><i class="fas fa-pen-to-square me-1"></i></a>
+                                <a href="../../controllers/CourseController.php?action=delete&id=<?php echo $course['c_id'] ?>" class="text-decoration-none text-danger"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php } ?>

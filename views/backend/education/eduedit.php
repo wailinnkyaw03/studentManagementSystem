@@ -78,7 +78,7 @@
                     <input type="hidden" name="user_id" value="<?php echo $education['u_id'] ?>">
                     <div class="form-group text-end">
                         <button class="btn btn-outline-secondary my-3 me-2" type="submit"><i class="fas fa-plus me-2"></i>Edit Education</button>
-                        <a href="admin.php?page=adminedit&id=<?php echo $admin['id'] ?>" class="btn btn-outline-secondary my-3">Back</a>
+                        
                     </div>
                 </form>
 

@@ -1,4 +1,3 @@
-
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="mb-4">
@@ -23,7 +22,7 @@
         <?php }?>
         
         <div class="table-responsive mt-3">
-            <table class="table table-hover">
+            <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -60,6 +59,10 @@
         </div>
     </div>
 </div>
+
+
+
+
 
 
 <!-- Modal -->

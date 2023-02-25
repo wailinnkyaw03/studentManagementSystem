@@ -4,13 +4,13 @@
                 <div class="col-md-3">
                     <div class="card mb-5 shadow">
                         <div class="card-header py-5" style="background-image: url(https://ipadizate.com/hero/2022/01/macbook-pro-13.3-m1.jpeg?width=1200); background-repeat: no repeat; background-size: cover;">
-                            <img style="border: 3px solid white; position:relative; top: 80px" class="rounded-circle m-auto d-block" width="150px" height="150px" src="../../assets/profileImages/<?php echo $admin['image'] ?>" alt="">
+                            <img style="border: 3px solid white; position:relative; top: 80px" class="rounded-circle m-auto d-block" width="150px" height="150px" src="../../assets/profileImages/<?php echo $tutor['image'] ?>" alt="">
                         </div>
                         <div class="card-body pt-5 text-center">
-                            <h3 class="text-dark" ><?php echo $admin['name'] ?></h3>
-                            <div class="badge badge-success"><?php echo $admin['roleName'] ?></div>
-                            <div class="mt-3 text-dark"><i class="fas fa-location-dot me-1"></i> <?php echo $admin['address'] ?></div>
-                            <a href="admin.php?page=adminedit&id=<?php echo $admin['u_id'] ?>" class="badge badge-primary mt-3 shadow">Edit Profile</a>
+                            <h3 class="text-dark" ><?php echo $tutor['name'] ?></h3>
+                            <div class="badge badge-success"><?php echo $tutor['roleName'] ?></div>
+                            <div class="mt-3 text-dark"><i class="fas fa-location-dot me-1"></i> <?php echo $tutor['address'] ?></div>
+                            <a href="admin.php?page=tutoredit&id=<?php echo $tutor['u_id'] ?>" class="badge badge-primary mt-3 shadow">Edit Profile</a>
                         </div>
                     </div>
                 </div>
@@ -23,23 +23,23 @@
                                     <table class="table table-borderless text-dark table-sm">
                                         <tr>
                                             <td>Name:</td>
-                                            <td><?php echo $admin['name'] ?></td>
+                                            <td><?php echo $tutor['name'] ?></td>
                                         </tr>
                                         <tr>
                                             <td>Email:</td>
-                                            <td><?php echo $admin['email'] ?></td>
+                                            <td><?php echo $tutor['email'] ?></td>
                                         </tr>
                                         <tr>
                                             <td>Phone:</td>
-                                            <td><?php echo $admin['phone'] ?></td>
+                                            <td><?php echo $tutor['phone'] ?></td>
                                         </tr>
                                         <tr>
                                             <td>Address:</td>
-                                            <td><?php echo $admin['address'] ?></td>
+                                            <td><?php echo $tutor['address'] ?></td>
                                         </tr>
                                         <tr>
                                             <td>Role:</td>
-                                            <td><?php echo $admin['roleName'] ?></td>
+                                            <td><?php echo $tutor['roleName'] ?></td>
                                         </tr>
                                     </table>
                                 </div>
@@ -50,22 +50,22 @@
                                             <td>Birthday:</td>
                                             <td>
                                                 <?php
-                                                $dobstr = strtotime($admin['dob']);
+                                                $dobstr = strtotime($tutor['dob']);
                                                 echo date('F d, Y', $dobstr);
                                                 ?>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Gender:</td>
-                                            <td><?php echo $admin['gender'] ?></td>
+                                            <td><?php echo $tutor['gender'] ?></td>
                                         </tr>
                                         <tr>
                                             <td>Skills:</td>
-                                            <td><?php echo $admin['skills'] ?></td>
+                                            <td><?php echo $tutor['skills'] ?></td>
                                         </tr>
                                         <tr>
                                             <td>Hobbies:</td>
-                                            <td><?php echo $admin['hobbies'] ?></td>
+                                            <td><?php echo $tutor['hobbies'] ?></td>
                                         </tr>
                                     </table>
                                 </div>

@@ -16,6 +16,7 @@ class AdminLogin{
         if($result == false){
             return false;
         }else{
+            $_SESSION["user_id"] = $result["id"];
             $_SESSION["username"] = $result["name"];
             $_SESSION["userimage"] = $result["image"];
             $_SESSION["useremail"] = $result["email"];

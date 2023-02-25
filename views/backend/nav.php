@@ -33,7 +33,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-house-user"></i>
                     <span>Admins</span>
@@ -49,7 +49,7 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-blog"></i>
                     <span>Posts</span>
@@ -74,7 +74,7 @@
 
             <!-- Nav Item - management data Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#student"
+                <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#student"
                     aria-expanded="true" aria-controls="student">
                     <i class="fas fa-fw fa-graduation-cap"></i>
                     <span>Students</span>
@@ -88,7 +88,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#tutor"
+                <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#tutor"
                     aria-expanded="true" aria-controls="tutor">
                     <i class="fa-solid fa-chalkboard-user"></i>
                     <span>Tutors</span>
@@ -102,7 +102,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#classtypes"
+                <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#classtypes"
                     aria-expanded="true" aria-controls="classtypes">
                     <i class="fa-regular fa-window-restore"></i>
                     <span>Class Categories</span>
@@ -116,7 +116,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#coursedetail"
+                <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#coursedetail"
                     aria-expanded="true" aria-controls="coursedetail">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Courses</span>
@@ -130,7 +130,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#fees"
+                <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#fees"
                     aria-expanded="true" aria-controls="fees">
                     <i class="fas fa-fw fa-dollar"></i>
                     <span>Fees</span>
@@ -198,7 +198,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-0 static-top shadow">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">

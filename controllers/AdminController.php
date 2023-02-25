@@ -104,16 +104,11 @@ if(isset($_POST['name'])){
                         "hobbies" => $hobbies,
                         "role_id" => 2
                     ];
-                    $edits = "";
-                    foreach($datas as $key=>$value){
-                        // $edit .= $key.'=:'.$key; 
-                        $edits .= "$key=:$key,"; 
-                    }
-                    $edits = rtrim($edits, ',');
                     
-                    $status = $admin->update("users", $datas, $edits, $id);
+                    
+                    $status = $admin->update("users", $datas, $id);
                     if($status){
-                        $_SESSION['status']="Users Updated Successfully With Image";
+                        $_SESSION['status']="Users Updated With Photo Successfully";
                         $_SESSION['expire']=time();
                     }
                     header("location: ../views/backend/admin.php?page=adminlist");
@@ -131,16 +126,11 @@ if(isset($_POST['name'])){
                         "hobbies" => $hobbies,
                         "role_id" => 2
                     ];
-                    $edits = "";
-                    foreach($datas as $key=>$value){
-                        // $edit .= $key.'=:'.$key; 
-                        $edits .= "$key=:$key,"; 
-                    }
-                    $edits = rtrim($edits, ',');
                     
-                    $status = $admin->update("users", $datas, $edits, $id);
+                    
+                    $status = $admin->update("users", $datas, $id);
                     if($status){
-                        $_SESSION['status']="Users Updated Successfully without image";
+                        $_SESSION['status']="Users Updated Without Photo Successfully";
                         $_SESSION['expire']=time();
                     }
                     header("location: ../views/backend/admin.php?page=adminlist");

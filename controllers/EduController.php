@@ -65,15 +65,8 @@ if(isset($_POST['university'])){
                 "started_date" => $started_date,
                 "ended_date" => $ended_date
             ];
-            $edits = "";
-            foreach($datas as $key=>$value){
-                // $edit .= $key.'=:'.$key; 
-                $edits .= "$key=:$key,"; 
-            }
-            $edits = rtrim($edits, ',');
-            $id = $_POST['edu_id'];
 
-            $status = $eduDB->update("education", $datas, $edits, $id);
+            $status = $eduDB->update("education", $datas, $id);
             if($status){
                 $_SESSION['status'] = "Education Updated Successfully";
                 $_SESSION['expire'] = time();
@@ -86,6 +79,15 @@ if(isset($_POST['university'])){
         }
     }
 
+}
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    $status = $eduDB->delete("education", $id);
+    if($status){
+        $_SESSION['status']="Education Deleted Successfully";
+        $_SESSION['expire']=time();
+    }
+    header("location: ".$_SERVER['HTTP_REFERER']);
 }
 
 

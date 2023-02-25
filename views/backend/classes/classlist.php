@@ -23,6 +23,7 @@
                     <tr>
                         <th>#</th>
                         <th>Type Name</th>
+                        <th>Created By</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -33,10 +34,11 @@
 
                             <tr>
                             <th scope="row"><?php echo $no; ?></th>
-                            <td><?php echo $class['className'] ?></td>
+                            <td><?php echo $class['type'] ?></td>
+                            <td><?php echo $class['name'] ?></td>
                             <td>
-                                <a href="admin.php?page=classedit&id=<?php echo $class['class_id'] ?>" class="text-decoration-none text-success"><i class="fas fa-pen-to-square me-1"></i></a>
-                                <a href="../../controllers/ClassController.php?action=delete&id=<?php echo $class['class_id'] ?>" class="text-decoration-none text-danger"><i class="fas fa-trash"></i></a>
+                                <a href="admin.php?page=classedit&id=<?php echo $class['c_id'] ?>" class="text-decoration-none text-success"><i class="fas fa-pen-to-square me-1"></i></a>
+                                <button class="btn btn-sm delete_id" data-id="<?php echo $class['c_id'] ?>" data-bs-toggle="modal" data-bs-target="#classDelete"><i class="fas fa-trash text-danger"></i></button>
                             </td>
                             </tr>
                             <tr>
@@ -46,4 +48,28 @@
         </div>
 
     </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="classDelete">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <i class="fas fa-warning text-danger fa-2x mb-3"></i>
+        <h1 class="modal-title fs-5" id="deleteModalLabel">Are you sure "Delete"?</h1>
+      </div>
+      <div class="modal-footer m-auto">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"><i class="fas fa-xmark me-2"></i>Cancle</button>
+        <form action="../../controllers/ClassController.php" method="GET">
+            <input type="hidden" name="id" id="delete_id" value="">
+            <button class="btn btn-success" type="submit"><i class="fas fa-check me-2"></i>Confirm</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

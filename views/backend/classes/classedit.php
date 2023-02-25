@@ -22,16 +22,17 @@
 
                 <form action="../../controllers/ClassController.php" method="post">
                     <div class="form-floating my-3">
-                        <input type="text" class="form-control" id="name" name="name" value="<?php echo $class['name'] ?>">
-                        <label for="name">Type Name</label>
-                        <?php if(isset($_SESSION['name'])){ ?>
+                        <input type="text" class="form-control" id="type" name="type" value="<?php echo $class['type'] ?>">
+                        <label for="type">Type Name</label>
+                        <?php if(isset($_SESSION['type'])){ ?>
                                 <p class="text-danger">
-                                    <?php echo $_SESSION['name']; ?>
+                                    <?php echo $_SESSION['type']; ?>
                                 </p>
                         <?php } ?>
                     </div>
                     <input type="hidden" name="action" value="update">
                     <input type="hidden" name="id" value="<?php echo $class['id'] ?>">
+                    <input type="text" name="created_by" value="<?php echo $_SESSION['user_id'] ?>">
                     <div class="form-group text-end">
                         <button class="btn btn-outline-secondary my-3 me-2" type="submit"><i class="fas fa-pen me-2"></i>Edit Class</button>
                         <button class="btn btn-outline-secondary my-3" type="reset"><i class="fa-solid fa-arrows-rotate me-2"></i>Reset</button>
