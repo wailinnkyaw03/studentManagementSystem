@@ -27,7 +27,7 @@
                         <th>Email</th>
                         <th>Phone</th>
                         <th>Address</th>
-                        <th>Birthday</th>
+                        <th>Status</th>
                         <th>Role</th>
                         <th>Joining Date</th>
                         <th>Salary</th>
@@ -45,7 +45,31 @@
                         <td><?= $tutor['email'] ?></td>
                         <td><?= $tutor['phone'] ?></td>
                         <td><?= $tutor['address'] ?></td>
-                        <td><?= $tutor['dob'] ?></td>
+                        <td>
+                            <?php if($tutor['user_status']=="approved"){ ?>
+                                <span class="badge badge-success">Active</span>
+                                <span class="btn">
+                                    <form action="../../controllers/TutorController.php" method="POST">
+                                        <input type="hidden" name="id" value="<?= $tutor['id'] ?>">
+                                        <input type="hidden" name="user_status" value="pending">
+                                        <input type="hidden" name="action" value="permission">
+                                        <button type="submit" class="btn btn-sm btn-danger">User Ban</button>
+                                    </form>
+                                </span>
+                                
+                            <?php }else{ ?>
+                                <span class="badge badge-warning">Pending . . .</span>
+                                <span class="btn">
+                                    <form action="../../controllers/TutorController.php" method="POST">
+                                        <input type="hidden" name="id" value="<?= $tutor['id'] ?>">
+                                        <input type="hidden" name="user_status" value="approved">
+                                        <input type="hidden" name="action" value="permission">
+                                        <button type="submit" class="btn btn-sm btn-success">Approve</button>
+                                    </form>
+                                </span>
+                                
+                            <?php } ?>
+                        </td>
                         <td><?= $tutor['roleName'] ?></td>
                         <td><?= $tutor['joiningDate'] ?></td>
                         <td><?= $tutor['salary'] ?></td>

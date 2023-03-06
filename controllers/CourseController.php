@@ -22,13 +22,11 @@ if(isset($_POST['title'])){
     $tmp_name = $_FILES['image']['tmp_name'];
     $folder = "../assets/profileImages/";
     $image = uniqid("course").$image_arr;
+    move_uploaded_file($tmp_name, $folder.$image);
 
-    if($title == "" | $image_arr == "" | $description == "" | $duration == "" | $class_id == "" | $fee_id == "" | $tutor_id == "" | $started_date == ""){
+    if($title == "" | $description == "" | $duration == "" | $class_id == "" | $fee_id == "" | $tutor_id == "" | $started_date == ""){
         if($title == ""){
             $_SESSION['title'] = "Title Must Not Be Empty";
-        }
-        if($image_arr == ""){
-            $_SESSION['image'] = "Course Image Must Not Be Empty";
         }
         if($description == ""){
             $_SESSION['description'] = "Course Outline Must Not Be Empty";
@@ -51,7 +49,6 @@ if(isset($_POST['title'])){
         header("location: ".$_SERVER["HTTP_REFERER"]);
     }else{
         unset($_SESSION['title']);
-        unset($_SESSION['image']);
         unset($_SESSION['description']);
         unset($_SESSION['duration']);
         unset($_SESSION['class_id']);
@@ -71,7 +68,6 @@ if(isset($_POST['title'])){
                 "tutor_id" => $tutor_id,
                 "started_date" => $started_date,
                 "created_by" => $created_by,
-                "posted_date" => date("Y-M-d"),
                 "category_id" => 2
             ];
             // echo "<pre>";
@@ -90,49 +86,72 @@ if(isset($_POST['title'])){
             header("location: ../views/backend/admin.php?page=courselist");
 
         }else if($_POST['action']=='update'){
-            $updated_by = $_POST['updated_by'];
-            $datas = [
-                "title" => $title,
-                "image" => $image,
-                "description" => $description, 
-                "duration" => $duration,
-                "class_id" => $class_id,
-                "fee_id" => $fee_id,
-                "tutor_id" => $tutor_id,
-                "started_date" => $started_date,
-                "updated_by" => $updated_by,
-                "category_id" => 2
-            ];
             $id = $_POST['id'];
-            $status = $courseDB->update($id, $title, $outline, $duration, $class_id);
-            if($status){
-                $_SESSION['status'] = 'Course Updated Successfully.';
-                $_SESSION['expire'] = time();
+            $updated_by = $_POST['updated_by'];
+            if($image_arr != null){
+                $datas = [
+                    "title" => $title,
+                    "image" => $image,
+                    "description" => $description, 
+                    "duration" => $duration,
+                    "class_id" => $class_id,
+                    "fee_id" => $fee_id,
+                    "tutor_id" => $tutor_id,
+                    "started_date" => $started_date,
+                    "updated_by" => $updated_by,
+                    "category_id" => 2
+                ];
+                $status = $courseDB->update("posts", $datas, $id);
+                if($status){
+                    $_SESSION['status'] = 'Course Updated with Photo Successfully.';
+                    $_SESSION['expire'] = time();
 
+                }else{
+                    $_SESSION['status'] = 'Course Updating Fail.';
+                    $_SESSION['expire'] = time();
+
+                }
+                header("location: ../views/backend/admin.php?page=courselist");
             }else{
-                $_SESSION['status'] = 'Course Updating Fail.';
-                $_SESSION['expire'] = time();
+                $datas = [
+                    "title" => $title,
+                    "description" => $description, 
+                    "duration" => $duration,
+                    "class_id" => $class_id,
+                    "fee_id" => $fee_id,
+                    "tutor_id" => $tutor_id,
+                    "started_date" => $started_date,
+                    "updated_by" => $updated_by,
+                    "category_id" => 2
+                ];
+                $status = $courseDB->update("posts", $datas, $id);
+                if($status){
+                    $_SESSION['status'] = 'Course Updated without Photo Successfully.';
+                    $_SESSION['expire'] = time();
 
+                }else{
+                    $_SESSION['status'] = 'Course Updating Fail.';
+                    $_SESSION['expire'] = time();
+
+                }
+                header("location: ../views/backend/admin.php?page=courselist");
             }
-
-            header("location: ../views/backend/admin.php?page=courselist");
-
         }
     }
 
     
 }
-// if($_GET['action']=='delete'){
-//     $id = $_GET['id'];
-//     $status = $courseDB->delete($id);
-//     if($status){
-//         $_SESSION['status'] = 'Course Deleted Successfully.';
-//         $_SESSION['expire'] = time();
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    $status = $courseDB->delete("posts", $id);
+    if($status){
+        $_SESSION['status'] = 'Course Deleted Successfully.';
+        $_SESSION['expire'] = time();
 
-//     }
-//     header("location: ".$_SERVER["HTTP_REFERER"]);
+    }
+    header("location: ".$_SERVER["HTTP_REFERER"]);
 
-// }
+}
 
 
 ?>

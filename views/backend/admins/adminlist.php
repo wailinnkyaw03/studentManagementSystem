@@ -28,6 +28,7 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Status</th>
                         <th>Phone</th>
                         <th>Role</th>
                         <th>Actions</th>
@@ -42,13 +43,41 @@
                         <th scope="row"><?php echo $no; ?></th>
                         <td><?php echo $admin['name'] ?></td>
                         <td><?php echo $admin['email'] ?></td>
+                        <td>
+                            <?php if($admin['user_status']=="approved"){ ?>
+                                <span class="badge badge-success">Active</span>
+                                <?php if($_SESSION['value']==1){ ?>
+                                    <span class="btn">
+                                        <form action="../../controllers/AdminController.php" method="POST">
+                                            <input type="hidden" name="id" value="<?= $admin['id'] ?>">
+                                            <input type="hidden" name="user_status" value="pending">
+                                            <input type="hidden" name="action" value="permission">
+                                            <button type="submit" class="btn btn-sm btn-danger">User Ban</button>
+                                        </form>
+                                    </span>
+                                <?php } ?>
+                            <?php }else{ ?>
+                                <span class="badge badge-warning">Pending . . .</span>
+                                <?php if($_SESSION['value']==1){ ?>
+                                <span class="btn">
+                                    <form action="../../controllers/AdminController.php" method="POST">
+                                        <input type="hidden" name="id" value="<?= $admin['id'] ?>">
+                                        <input type="hidden" name="user_status" value="approved">
+                                        <input type="hidden" name="action" value="permission">
+                                        <button type="submit" class="btn btn-sm btn-success">Approve</button>
+                                    </form>
+                                </span>
+                                <?php } ?>
+                            <?php } ?>
+                        </td>
                         <td><?php echo $admin['phone'] ?></td>
                         <td><?php echo $admin['roleName'] ?></td>
                         <td>
                             <a class="btn btn-sm btn-primary" href="admin.php?page=detail&id=<?php echo $admin['u_id'] ?>">Detail</a>
-                            <a href="admin.php?page=adminedit&id=<?php echo $admin['u_id'] ?>" class="btn btn-sm btn-success">Edit</a>
-                            <!-- <a href="../../controllers/AdminController.php?action=delete&id=" class="btn btn-sm btn-danger">Delete</a> -->
-                            <button class="btn btn-sm btn-danger delete_id" data-id="<?php echo $admin['u_id'] ?>" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+                            <?php if($_SESSION['value']==1){ ?>
+                                <a href="admin.php?page=adminedit&id=<?php echo $admin['u_id'] ?>" class="btn btn-sm btn-success">Edit</a>
+                                <button class="btn btn-sm btn-danger delete_id" data-id="<?php echo $admin['u_id'] ?>" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+                            <?php } ?>
                         </td>
                         </tr>
                         <tr>

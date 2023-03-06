@@ -25,15 +25,11 @@ if(isset($_POST['name'])){
     $tmp_name = $_FILES['image']['tmp_name'];
     $folder = "../assets/profileImages/";
     $image = uniqid("tutor").$image_arr;
-    
     move_uploaded_file($tmp_name, $folder.$image);
 
-    if($name == "" | $image_arr == "" | $email == "" | $password == "" | $dob == "" | $gender == "" | $phone == "" | $address == "" | $skills == "" | $hobbies == "" | $joiningDate == "" | $salary == ""){
+    if($name == "" | $email == "" | $password == "" | $dob == "" | $gender == "" | $phone == "" | $address == "" | $skills == "" | $hobbies == "" | $joiningDate == "" | $salary == ""){
         if($name == ""){
             $_SESSION['name'] = "Name Must Not Be Empty";
-        }
-        if($image_arr == ""){
-            $_SESSION['image'] = "Profile Image Must Not Be Empty";
         }
         if($email == ""){
             $_SESSION['email'] = "Email Must Not Be Empty";
@@ -68,7 +64,6 @@ if(isset($_POST['name'])){
         header("location: ".$_SERVER["HTTP_REFERER"]);
     }else{
         unset($_SESSION['name']);
-        unset($_SESSION['image']);
         unset($_SESSION['email']);
         unset($_SESSION['password']);
         unset($_SESSION['dob']);
@@ -95,6 +90,7 @@ if(isset($_POST['name'])){
                 "joiningDate" => $joiningDate,
                 "salary" => $salary,
                 "role_id" => 3,
+                "user_status"=>"pending"
             ];
             $status = $tutors->create("users", $datas);
             if($status){
@@ -151,6 +147,22 @@ if(isset($_POST['name'])){
                 header("location: ../views/backend/admin.php?page=tutorlist");
             }
         }
+    }
+}
+if($_POST['action']=="permission"){
+    $id = $_POST['id'];
+    $user_status = $_POST['user_status'];
+    $datas =[
+        "user_status" => $user_status
+    ];
+    $status=$tutors->update("users", $datas, $id);
+    header("location: ".$_SERVER["HTTP_REFERER"]);
+    if($_POST['user_status']=="approved"){ 
+        $_SESSION['status']="Permission Approved";
+        $_SESSION['expire']=time();
+    }else{
+        $_SESSION['status']="Permission Banned";
+        $_SESSION['expire']=time();
     }
 }
 if(isset($_GET['id'])){

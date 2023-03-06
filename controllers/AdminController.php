@@ -39,7 +39,8 @@ if(isset($_POST['name'])){
                 "email" => $email,
                 "password" => $password,
                 "phone" => $phone,
-                "role_id" => 2
+                "role_id" => 2,
+                "user_status"=>"approved"
             ];
             $status = $admin->create("users", $datas);
             if($status){
@@ -102,7 +103,8 @@ if(isset($_POST['name'])){
                         "dob" => $dob,
                         "skills" => $skills,
                         "hobbies" => $hobbies,
-                        "role_id" => 2
+                        "role_id" => 2,
+                        "user_status"=>"approved"
                     ];
                     
                     
@@ -139,6 +141,22 @@ if(isset($_POST['name'])){
             } 
 
         }
+    }
+}
+if($_POST['action']=="permission"){
+    $id = $_POST['id'];
+    $user_status = $_POST['user_status'];
+    $datas =[
+        "user_status" => $user_status
+    ];
+    $status=$admin->update("users", $datas, $id);
+    header("location: ".$_SERVER["HTTP_REFERER"]);
+    if($_POST['user_status']=="approved"){ 
+        $_SESSION['status']="Permission Approved";
+        $_SESSION['expire']=time();
+    }else{
+        $_SESSION['status']="Permission Banned";
+        $_SESSION['expire']=time();
     }
 }
 if(isset($_GET['id'])){

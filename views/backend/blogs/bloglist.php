@@ -1,7 +1,10 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <div class="mb-4">
-        <h1 class="h3 mb-0 text-gray-800 my-5"><i class="fas fa-list me-2"></i>Course List</h1>
+        
+
+        <h1 class="h3 my-5 text-gray-800 my-5"><i class="fas fa-blog me-2"></i>Blog List</h1>
+
         <?php if(isset($_SESSION['expire'])){
             $diff = time() - $_SESSION['expire'];
             if($diff > 2){
@@ -17,53 +20,51 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         <?php }?>
+        
         <div class="table-responsive mt-3">
-            <table class="table table-hover">
+            <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
                         <th>#</th>
                         <th>Title</th>
-                        <th>Durations</th>
-                        <th>Started Date</th>
-                        <th>Class Type</th>
-                        <th>Fee</th>
-                        <th>Tutor</th>
+                        <th>Image</th>
                         <th>Created By</th>
                         <th>Updated By</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php 
+                <?php 
                     $no = 1;
-                    foreach($courses as $course){ ?>
+                    foreach($blogs as $blog){ ?>
+
                         <tr>
-                            <td><?php echo $no++ ?></td>
-                            <td><?php echo $course['title'] ?></td>
-                            <td><?php echo $course['duration']." months" ?></td>
-                            <td><?php echo $course['started_date'] ?></td>
-                            <td><?php echo $course['type'] ?></td>
-                            <td><?php echo $course['feeamount']." MMK" ?></td>
-                            <td><?php echo $course['tutor_name'] ?></td>
-                            <td><?php echo $course['admin_name'] ?></td>
-                            <td><?php echo $course['editor_name'] ?></td>
-                            <td>
-                                <a href="admin.php?page=courseedit&id=<?php echo $course['p_id'] ?>" class="text-decoration-none text-success"><i class="fas fa-pen-to-square me-1"></i></a>
-                                <button class="btn btn-sm delete_id" data-id="<?php echo $course['p_id'] ?>" data-bs-toggle="modal" data-bs-target="#courseDelete"><i class="fas fa-trash text-danger"></i></button>
-                            </td>
+                        <th scope="row"><?php echo $no; ?></th>
+                        <td><?php echo $blog['title'] ?></td>
+                        <td><img src="../../assets/profileImages/<?= $blog['p_img'] ?>" width="100px" alt=""></td>
+                        <td><?php echo $blog['admin_name'] ?></td>
+                        <td><?php echo $blog['editor_name'] ?></td>
+                        <td>
+                            <a href="admin.php?page=blogedit&id=<?php echo $blog['p_id'] ?>" class="btn btn-sm btn-success">Edit</a>
+                            <button class="btn btn-sm btn-danger delete_id" data-id="<?php echo $blog['p_id'] ?>" data-bs-toggle="modal" data-bs-target="#blogDelete">Delete</button>
+                        </td>
                         </tr>
-                    <?php } ?>
+                        <tr>
+                <?php $no++; } ?>
                     
                 </tbody>
             </table>
         </div>
-
     </div>
 </div>
 
 
+
+
+
+
 <!-- Modal -->
-<div class="modal fade" id="courseDelete">
+<div class="modal fade" id="blogDelete">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
@@ -75,7 +76,7 @@
       </div>
       <div class="modal-footer m-auto">
         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"><i class="fas fa-xmark me-2"></i>Cancle</button>
-        <form action="../../controllers/CourseController.php" method="GET">
+        <form action="../../controllers/BlogController.php" method="GET">
             <input type="hidden" name="id" id="delete_id" value="">
             <button class="btn btn-success" type="submit"><i class="fas fa-check me-2"></i>Confirm</button>
         </form>

@@ -80,11 +80,11 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-4">
-                                        <input type="radio" name="gender" id="male" value="Male">
+                                        <input type="radio" name="gender" id="male" value="Male" <?php if($admin['gender']=="Male"){ echo "checked"; } ?>>
                                         <label for="male" class="form-label">Male</label>
                                     </div>
                                     <div class="col-4">
-                                        <input type="radio" name="gender" id="female" value="Female">
+                                        <input type="radio" name="gender" id="female" value="Female" <?php if($admin['gender']=="Female"){ echo "checked"; } ?>>
                                         <label for="female" class="form-label">Female</label>
                                     </div>
                                 </div>

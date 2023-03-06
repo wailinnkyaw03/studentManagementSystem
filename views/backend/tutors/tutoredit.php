@@ -68,9 +68,9 @@
                             <div class="my-3">
                                 <label for="">Gender</label><br>
                                 <label for="male">Male</label>
-                                <input type="radio" id="male" name="gender" value="Male">
+                                <input type="radio" id="male" name="gender" value="Male" <?php if($user['gender']=="Male"){ echo "checked"; } ?>>
                                 <label for="female" class="ms-5">Female</label>
-                                <input type="radio" id="female" name="gender" value="Female">
+                                <input type="radio" id="female" name="gender" value="Female" <?php if($user['gender']=="Female"){ echo "checked"; } ?>>
                                 <?php if(isset($_SESSION['gender'])){ ?>
                                         <p class="text-danger">
                                             <?php echo $_SESSION['gender']; ?>

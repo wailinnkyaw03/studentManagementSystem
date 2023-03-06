@@ -52,14 +52,14 @@
                 <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-blog"></i>
-                    <span>Posts</span>
+                    <span>Blogs</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Post Components:</h6>
-                        <a class="collapse-item" href="admin.php?page=addAdmin"><i class="fas fa-plus-circle me-2"></i> Add Post</a>
-                        <a class="collapse-item" href="admin.php?page=addAdmin"><i class="fas fa-list me-2"></i> Post List</a>
+                        <h6 class="collapse-header">Blog Components:</h6>
+                        <a class="collapse-item" href="admin.php?page=blogadd"><i class="fas fa-plus-circle me-2"></i> Add Blog</a>
+                        <a class="collapse-item" href="admin.php?page=bloglist"><i class="fas fa-list me-2"></i> Blog List</a>
                     </div>
                 </div>
             </li>
@@ -379,7 +379,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="admin.php?page=profile&id=<?= $_SESSION['user_id'] ?>">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>

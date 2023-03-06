@@ -41,8 +41,8 @@
                         <?php } ?>
                     </div>
                     <div class="form-floating my-3">
-                        <input type="text" class="form-control" id="description" name="description" placeholder="description">
-                        <label for="description">Course Outlines</label>
+                        <input type="text" class="form-control" id="desc" name="description" placeholder="description">
+                        <label for="desc">Course Outlines</label>
                         <?php if(isset($_SESSION['description'])){ ?>
                                 <p class="text-danger">
                                     <?php echo $_SESSION['description']; ?>

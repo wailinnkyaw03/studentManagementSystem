@@ -4,7 +4,28 @@ Roles #1
 create table roles(id int primary key auto_increment, roleName varchar(30), created_at timestamp);
 
 Users #2
-create table users(id int primary key auto_increment, name varchar(50), image varchar(255), email varchar(255), password varchar(255), phone varchar(50), address varchar(255), gender char(10), dob date, skills text, hobbies varchar(255), edu_id int, exp_id int, course_id int, role_id int, foreign key(edu_id) references education(id), foreign key(exp_id) references experience(id), foreign key(course_id) references posts(id), foreign key(role_id) references roles(id));
+create table users(
+    id int primary key auto_increment, 
+    name varchar(50), 
+    image varchar(255), 
+    email varchar(255), 
+    password varchar(255), 
+    phone varchar(50), 
+    address varchar(255), 
+    gender char(10), 
+    dob date, 
+    skills text,
+    salary float, 
+    hobbies varchar(255), 
+    edu_id int, 
+    exp_id int, 
+    course_id int,
+    class_id int, 
+    role_id int, 
+    user_status char(20),
+    joiningDate date,
+    created_at timestamp,
+    foreign key(edu_id) references education(id), foreign key(exp_id) references experience(id), foreign key(course_id) references posts(id), foreign key(class_id) references classes(id), foreign key(role_id) references roles(id));
 
 Education #3
 create table education(id int primary key auto_increment, university varchar(255), subject varchar(255), started_date date, ended_date date, user_id int, foreign key(user_id) references users(id));
